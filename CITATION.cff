@@ -7,7 +7,6 @@ authors:
   affiliation: "Universidad Privada del Norte, Facultad de Ingeniería Industrial, Lima, Perú"
 title: "Informe Técnico: Caracterización Fisicoquímica de Suelos Urbanos del Parque Kennedy"
 version: 1.0.0
-date-released: 2026-06-30
 doi: ""
 url: "https://github.com/JharolVilca/parque-kennedy-informe-tecnico"
 preferred-citation:
@@ -29,4 +28,4 @@ keywords:
 - Parque Kennedy
 - materia orgánica
 - conductividad eléctrica
-license: MIT
+license: CC-BY-4.0

@@ -4,7 +4,8 @@
 **ORCID:** [0009-0009-7897-3439](https://orcid.org/0009-0009-7897-3439)  
 **Afiliación:** Universidad Privada del Norte, Facultad de Ingeniería Industrial, Lima, Perú  
 **Fecha:** Junio 2026  
-**Licencia:** MIT
+**Licencia (código):** MIT  
+**Licencia (documento archivado en Zenodo):** CC-BY-4.0
 
 ---
 

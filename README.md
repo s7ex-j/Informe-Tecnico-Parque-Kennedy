@@ -1,6 +1,9 @@
 # Informe Técnico: Caracterización Fisicoquímica de Suelos Urbanos del Parque Kennedy
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21695655.svg)](https://doi.org/10.5281/zenodo.21695655)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-blue.svg)](https://creativecommons.org/licenses/by/4.0/)
+[![LaTeX](https://img.shields.io/badge/LaTeX-TikZ%20%7C%20pgfplots-orange.svg)]()
 
 **Autor:** Jharol André Vilca Ramos  
 **ORCID:** [0009-0009-7897-3439](https://orcid.org/0009-0009-7897-3439)  
@@ -12,19 +15,38 @@
 
 ---
 
-## Resumen
+## 📋 Descripción del Proyecto
 
-Se realizó la caracterización fisicoquímica de una muestra compuesta de suelo procedente del Parque Kennedy (Miraflores, Lima, Perú), un entorno urbano sometido a intensa actividad biogénica asociada a una elevada población felina. El estudio comprendió etapas de muestreo, reducción de muestra mediante cuarteo normado, y determinación de humedad gravimétrica ($23.10\% \pm 0.39\%$), densidad aparente ($1.61 \pm 0.05~\text{g/cm}^3$ en base aire-seca; $\approx 1.58 \pm 0.05~\text{g/cm}^3$ estimado a base seca de horno), potencial de hidrógeno (pH $7.09 \pm 0.03$), temperatura de la sesión de pH ($22.73 \pm 0.12~^\circ\text{C}$), conductividad eléctrica ($1970 \pm 60~\mu\text{S/cm}$), textura (franco-arenosa, $\approx 73\%$ arena, $\approx 24\%$ finos) y materia orgánica por LOI ($3.94\%$).
+Este repositorio contiene el informe técnico completo de la **caracterización fisicoquímica de suelos urbanos** realizada en el **Parque Kennedy** (Miraflores, Lima, Perú). El estudio evalúa el impacto de la intensa actividad biogénica asociada a una elevada población felina sobre las propiedades del suelo urbano.
 
-La elevada conductividad eléctrica, anómala para un parque urbano estándar ($< 500~\mu\text{S/cm}$), es consistente con la acumulación de sales solubles derivadas de aportes biogénicos continuos; el pH neutro refleja la capacidad tampón calcárea característica de los suelos costeros de Lima; la temperatura medida permite interpretar la espontaneidad y la velocidad de los procesos de volatilización y mineralización; la densidad aparente evidencia una compactación moderada asociada al uso recreativo intensivo; y el contenido de materia orgánica, en el extremo superior del rango regional reportado en estudios previos, es consistente con el aporte continuo de excretas felinas.
+### Objetivos
+- Determinar las propiedades fisicoquímicas baseline del suelo urbano
+- Evaluar la influencia de aportes biogénicos continuos (excretas felinas) en la salinización edáfica
+- Generar una base de datos de referencia para estudios de suelos urbanos en Lima
 
-La información generada constituye una base fisicoquímica integral para interpretar los procesos de transformación en ecosistemas urbanos sometidos a aportes continuos de compuestos nitrogenados.
-
-**Palabras clave:** Suelo urbano, Caracterización fisicoquímica, Salinización edáfica, Parque Kennedy
+### Contexto
+El Parque Kennedy presenta condiciones únicas: uso recreativo intensivo, alta densidad de felinos ferales/domésticos, y suelos costeros calcáreos. Esta combinación genera procesos de **salinización edáfica** y acumulación de materia orgánica atípicos para parques urbanos estándar.
 
 ---
 
-## Estructura del repositorio
+## 📊 Resultados Principales
+
+| Parámetro | Valor | Interpretación |
+|-----------|-------|----------------|
+| **Humedad gravimétrica** | 23.10% ± 0.39% | Contenido hídrico moderado-alto |
+| **Densidad aparente** | 1.61 ± 0.05 g/cm³ (aire-seca) | Compactación moderada por uso recreativo |
+| **pH** | 7.09 ± 0.03 | Neutro, tampón calcáreo costero |
+| **Temperatura pH** | 22.73 ± 0.12 °C | Condiciones de medición estandarizadas |
+| **Conductividad eléctrica** | **1970 ± 60 μS/cm** | **⚠️ Anómala** (estándar < 500 μS/cm) |
+| **Textura** | Franco-arenosa (~73% arena, ~24% finos) | Buen drenaje, baja retención |
+| **Materia orgánica (LOI)** | 3.94% | Extremo superior rango regional |
+
+### Hallazgo Clave
+La **conductividad eléctrica (1970 μS/cm)** es ~4× el valor típico de parques urbanos (< 500 μS/cm), consistente con acumulación de sales solubles por **aportes biogénicos continuos** (excretas felinas). El pH neutro refleja la capacidad tampón calcárea de suelos costeros limeños.
+
+---
+
+## 📁 Estructura del Repositorio
 
 ```
 github/
@@ -32,13 +54,13 @@ github/
 ├── CITATION.cff
 ├── README.md
 ├── Informe/
-│   ├── Informe.tex
-│   ├── jaes.cls
-│   ├── jaes.bib
-│   ├── jaes.bst
-│   ├── Informe.pdf
-│   ├── cuted.sty
-│   └── orcidlink.sty
+│   ├── Informe.tex          # Fuente LaTeX principal
+│   ├── jaes.cls             # Clase de documento JAES
+│   ├── jaes.bib             # Bibliografía
+│   ├── jaes.bst             # Estilo bibliográfico
+│   ├── Informe.pdf          # PDF compilado (versión archivada en Zenodo)
+│   ├── cuted.sty            # Paquete para columnas mixtas
+│   └── orcidlink.sty        # Paquete para enlaces ORCID
 ├── Imágenes/
 │   ├── Macrolocalización.pdf
 │   ├── Microlocalización.pdf
@@ -53,18 +75,32 @@ github/
 
 ---
 
-## Cómo compilar el informe
+## 🛠️ Cómo Compilar el Informe
 
-Requiere LaTeX con los paquetes estándar y la clase `jaes.cls` incluida en `Informe/`.
+**Requisitos:** LaTeX (TeX Live / MiKTeX) con `latexmk`, paquetes estándar + `jaes.cls` incluida.
 
 ```bash
 cd Informe
 latexmk -pdf Informe.tex
 ```
 
+El PDF generado (`Informe.pdf`) es idéntico al archivado en Zenodo (DOI: 10.5281/zenodo.21695655).
+
 ---
 
-## Cómo citar
+## 📖 Metodología Resumida
+
+1. **Muestreo**: Muestra compuesta, reducción por cuarteo normado
+2. **Humedad gravimétrica**: Secado a 105 °C hasta peso constante
+3. **Densidad aparente**: Método del cilindro volumétrico
+4. **pH y temperatura**: Potenciometría en suspensión 1:2.5 (suelo:agua)
+5. **Conductividad eléctrica**: Extracto de saturación, conductímetro
+6. **Textura**: Método Bouyoucos / hidrómetro
+7. **Materia orgánica**: Pérdida por ignición (LOI) a 440 °C
+
+---
+
+## 📄 Cómo Citar
 
 Si usa este trabajo, cite como:
 
@@ -81,3 +117,30 @@ Si usa este trabajo, cite como:
 ```
 
 O use el archivo `CITATION.cff` para citación automática en GitHub/Zenodo.
+
+---
+
+## 📜 Licencias
+
+| Componente | Licencia |
+|------------|----------|
+| Código / scripts / LaTeX source | [MIT](LICENSE) |
+| Documento PDF archivado (Zenodo) | [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/) |
+
+---
+
+## 🔗 Enlaces Relacionados
+
+- **Zenodo (versión archivada):** https://doi.org/10.5281/zenodo.21695655
+- **GitHub Repositorio:** https://github.com/s7ex-j/Informe-Tecnico-Parque-Kennedy
+- **ORCID Autor:** https://orcid.org/0009-0009-7897-3439
+
+---
+
+## 📬 Contacto
+
+**Jharol André Vilca Ramos**  
+Universidad Privada del Norte  
+Facultad de Ingeniería Industrial  
+Lima, Perú  
+📧 [ORCID Profile](https://orcid.org/0009-0009-7897-3439)

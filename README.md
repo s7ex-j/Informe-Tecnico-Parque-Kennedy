@@ -49,7 +49,7 @@ La **conductividad eléctrica (1970 μS/cm)** es ~4× el valor típico de parque
 ## 📁 Estructura del Repositorio
 
 ```
-github/
+Informe-Tecnico-Parque-Kennedy/
 ├── LICENSE
 ├── CITATION.cff
 ├── README.md
@@ -105,14 +105,15 @@ El PDF generado (`Informe.pdf`) es idéntico al archivado en Zenodo (DOI: 10.528
 Si usa este trabajo, cite como:
 
 ```bibtex
-@article{VilcaRamos2026,
-  author  = {Vilca Ramos, Jharol André},
-  title   = {Informe Técnico: Caracterización Fisicoquímica de Suelos Urbanos del Parque Kennedy},
-  journal = {Informe Técnico},
-  year    = {2026},
-  month   = {6},
-  doi     = {10.5281/zenodo.21695655},
-  url     = {https://github.com/s7ex-j/Informe-Tecnico-Parque-Kennedy}
+@techreport{VilcaRamos2026,
+  author       = {Vilca Ramos, Jharol André},
+  title        = {Informe Técnico: Caracterización Fisicoquímica de Suelos Urbanos del Parque Kennedy},
+  institution  = {Universidad Privada del Norte, Facultad de Ingeniería Industrial},
+  year         = {2026},
+  month        = {6},
+  doi          = {10.5281/zenodo.21695655},
+  url          = {https://github.com/s7ex-j/Informe-Tecnico-Parque-Kennedy},
+  type         = {Informe Técnico}
 }
 ```
 

@@ -135,12 +135,3 @@ O use el archivo `CITATION.cff` para citación automática en GitHub/Zenodo.
 - **GitHub Repositorio:** https://github.com/s7ex-j/Informe-Tecnico-Parque-Kennedy
 - **ORCID Autor:** https://orcid.org/0009-0009-7897-3439
 
----
-
-## 📬 Contacto
-
-**Jharol André Vilca Ramos**  
-Universidad Privada del Norte  
-Facultad de Ingeniería Industrial  
-Lima, Perú  
-📧 [ORCID Profile](https://orcid.org/0009-0009-7897-3439)

@@ -1,0 +1,1267 @@
+\documentclass[fleqn]{jaes}
+
+% Información de metadatos
+\jyear{2026}
+\jmonth{Junio}
+\jname{Informe Técnico}
+
+\usepackage{amsmath}\setlength{\mathindent}{10pt}
+\usepackage{bm}
+\usepackage[capitalise]{cleveref}
+\renewcommand\tablename{Tabla}
+\renewcommand\figurename{Figura}
+\crefname{equation}{Ec.}{Ecs.}
+\Crefname{equation}{Ecuación}{Ecuaciones}
+\crefname{subsection}{Sec.}{Secs.}
+\Crefname{subsection}{Sección}{Secciones}
+\crefname{subsubsection}{Sec.}{Secs.}
+\Crefname{subsubsection}{Sección}{Secciones}
+\crefname{table}{Tabla}{Tablas}
+\Crefname{table}{Tabla}{Tablas}
+\newcommand{\crefpairconjunction}{ y }
+\newcommand{\crefmiddleconjunction}{, }
+\newcommand{\crefrangeconjunction}{ a }
+\newcommand{\creflastconjunction}{ y }
+  \crefformat{section}{\textsc{Sec.~#2#1#3}}
+  \Crefformat{section}{\textsc{Sec.~#2#1#3}}
+  \crefformat{figure}{{Fig.~#2#1#3}}
+  \Crefformat{figure}{{Fig.~#2#1#3}}
+  \crefformat{table}{{Tabla~#2#1#3}}
+  \Crefformat{table}{{Tabla~#2#1#3}}
+
+\renewcommand{\bibname}{Referencias}
+\renewenvironment{keywords}{\par\addvspace{11pt}\noindent\textbf{Palabras clave: }\keywordsfont\ignorespaces}{\par\addvspace{0pt}}
+
+% \usepackage[left]{lineno}
+% La opción [switch] para el exterior de dos columnas no es compatible con la plantilla JAES
+% \linenumbers
+
+%\usepackage{citesort}
+
+% Probado exitosamente con el paquete todonotes
+% \usepackage[]{todonotes}
+% \newcommand{\mytodo}[1]{\todo[inline,color=blue!10]{Pendiente: #1}}
+
+\begin{document}
+
+% Encabezados de página {Authors}{Short title}
+\markboth{Vilca Ramos}{Informe Técnico --- Suelo del Parque Kennedy}
+
+% Sección del título
+\title{Informe Técnico: Caracterización Fisicoquímica de Suelos Urbanos del Parque Kennedy}
+
+% Información del autor
+\authorgroup{
+\author{Jharol André Vilca Ramos\textsuperscript{1}\orcidlink{0009-0009-7897-3439}}
+% La etiqueta \email alinea los códigos debajo de cada autor. Ajustar los \quad según el largo de los nombres.
+\email{N00481358\\}
+\affil{\textsuperscript{1}Universidad Privada del Norte, Facultad de Ingeniería Industrial, Lima, Perú}
+}
+
+% Resumen
+% Resumen
+\abstract{%
+Se realizó la caracterización fisicoquímica de una muestra compuesta de suelo procedente del Parque Kennedy (Miraflores, Lima, Perú), un entorno urbano sometido a intensa actividad biogénica asociada a una elevada población felina. El estudio comprendió etapas de muestreo, reducción de muestra mediante cuarteo normado, y determinación de humedad gravimétrica ($23.10\% \pm 0.39\%$), densidad aparente ($1.61 \pm 0.05~\text{g/cm}^3$ en base aire-seca; $\approx 1.58 \pm 0.05~\text{g/cm}^3$ estimado a base seca de horno), potencial de hidrógeno (pH $7.09 \pm 0.03$), temperatura de la sesión de pH ($22.73 \pm 0.12~^\circ\text{C}$), conductividad eléctrica ($1970 \pm 60~\mu\text{S/cm}$), textura (franco-arenosa, $\approx 73\%$ arena, $\approx 24\%$ finos) y materia orgánica por LOI ($3.94\%$). La elevada conductividad eléctrica, anómala para un parque urbano estándar ($< 500~\mu\text{S/cm}$), es consistente con la acumulación de sales solubles derivadas de aportes biogénicos continuos; el pH neutro refleja la capacidad tampón calcárea característica de los suelos costeros de Lima; la temperatura medida permite interpretar la espontaneidad y la velocidad de los procesos de volatilización y mineralización; la densidad aparente evidencia una compactación moderada asociada al uso recreativo intensivo; y el contenido de materia orgánica, en el extremo superior del rango regional reportado en estudios previos, es consistente con el aporte continuo de excretas felinas. La información generada constituye una base fisicoquímica integral para interpretar los procesos de transformación en ecosistemas urbanos sometidos a aportes continuos de compuestos nitrogenados.}
+\maketitle
+
+\begin{keywords}
+Suelo urbano, Caracterización fisicoquímica, Salinización edáfica, Parque Kennedy
+\end{keywords}
+
+\section{Introducción}\label{sec:intro}
+
+El suelo constituye uno de los componentes fundamentales de los ecosistemas terrestres debido a su participación en los ciclos biogeoquímicos, el almacenamiento de agua, el soporte de la vegetación y la regulación de diversos procesos ambientales. En entornos urbanos, estas funciones pueden verse modificadas por actividades antrópicas continuas que alteran la composición física, química y biológica de la matriz edáfica. La evaluación de las propiedades fisicoquímicas del suelo permite identificar dichas alteraciones y establecer indicadores de calidad ambiental relevantes para la gestión sostenible de espacios públicos urbanos.
+
+El Parque Kennedy, ubicado en el distrito de Miraflores (Lima, Perú), representa un caso de interés debido a la elevada densidad de población felina presente de forma permanente en el área. La deposición continua de excretas genera aportes significativos de compuestos nitrogenados, materia orgánica y sales solubles que pueden modificar las condiciones naturales del suelo. Estos aportes influyen en procesos como la mineralización de nutrientes, la movilidad iónica, la retención de humedad y el equilibrio ácido-base de la fase sólida y líquida del sistema edáfico. Reportes periodísticos han documentado episodios de intoxicación de fauna en el parque \cite{CentrodeMedicinaVeterinariaForense2023}, lo que refuerza la necesidad de evaluar la calidad ambiental de sus suelos.
+
+Desde una perspectiva conceptual, el suelo del parque puede interpretarse como un reactor biogénico urbano sometido a entradas constantes de materia y energía. Bajo este enfoque, las transformaciones químicas asociadas a la degradación de compuestos orgánicos y nitrogenados pueden reflejarse en parámetros medibles como el potencial de hidrógeno (pH), la conductividad eléctrica (CE), el contenido de materia orgánica, la distribución granulométrica y la densidad aparente. El análisis conjunto de estas variables permite caracterizar el estado actual del sistema y comprender los mecanismos que gobiernan su comportamiento fisicoquímico.
+
+Si bien el pH y la composición química determinan la disponibilidad de nutrientes, la humedad y la temperatura del suelo modulan la velocidad de los procesos fisicoquímicos y biológicos responsables de su transformación. En consecuencia, la fertilidad del suelo depende de la interacción entre estas variables y no únicamente de la concentración de nutrientes, lo que justifica su caracterización integral en el presente estudio.
+
+El presente estudio tuvo como objetivo realizar la caracterización fisicoquímica de una muestra representativa de suelo procedente del Parque Kennedy mediante procedimientos normalizados de muestreo, pretratamiento y análisis de laboratorio. Se determinaron la humedad gravimétrica ($23.10\% \pm 0.39\%$), la densidad aparente ($1.61 \pm 0.05~\text{g/cm}^3$ en base aire-seca), el pH ($7.09 \pm 0.03$), la temperatura de la sesión de pH ($22.73 \pm 0.12~^\circ\text{C}$), la conductividad eléctrica ($1970 \pm 60~\mu\text{S/cm}$), la textura del suelo (franco-arenosa) y el contenido de materia orgánica por LOI ($3.94\%$). Estos resultados son consistentes con un aporte sostenido de sales asociado a la actividad felina y posiblemente a otras fuentes urbanas, en el marco del modelo de reactor biogénico urbano propuesto.
+
+La estructura del artículo se organiza de la siguiente manera. La \cref{sec:marco_teorico} desarrolla los fundamentos conceptuales relacionados con la química y física de suelos urbanos. La \cref{sec:metodologia} describe el procedimiento de muestreo, pretratamiento y análisis experimental aplicado a las muestras recolectadas. La \cref{sec:resultados} presenta los resultados obtenidos y su análisis cuantitativo para los seis parámetros medidos. La \cref{sec:aplicaciones} examina la interpretación de los datos desde los principios termodinámicos y cinéticos que gobiernan el comportamiento del sistema edáfico. La \cref{sec:discusion} integra los hallazgos experimentales dentro del contexto ambiental del área de estudio. Finalmente, la \cref{sec:conclusiones} sintetiza las principales observaciones derivadas de la investigación y sus implicancias para la gestión de suelos urbanos.
+
+\section{Marco teórico}\label{sec:marco_teorico}
+
+\subsection{Suelos urbanos y contexto ambiental del Parque Kennedy}
+
+Los suelos urbanos constituyen sistemas dinámicos sometidos a perturbaciones físicas, químicas y biológicas derivadas de las actividades humanas. Su composición puede diferir significativamente de la observada en ecosistemas naturales debido a la incorporación continua de residuos orgánicos, materiales de construcción, contaminantes y compuestos químicos de diversa procedencia. En el caso de Lima Metropolitana, diversos estudios han documentado la presencia de contaminantes en áreas verdes urbanas, incluyendo metales pesados acumulados en parques recreacionales \cite{Tello2018,TelloPerams2018}.
+
+El Parque Kennedy, ubicado en el distrito de Miraflores, representa un entorno de interés ambiental debido a la elevada concentración de población felina que habita permanentemente en sus instalaciones. Diversos documentos técnicos relacionados con la gestión y mejoramiento del parque describen sus características urbanísticas y ambientales \cite{GerenciadeObrasPblicas2019,MunicipalidadDistritaldeMiraflores2019}. Asimismo, investigaciones y reportes periciales recientes han evidenciado la necesidad de evaluar la calidad ambiental de los suelos presentes en esta área verde urbana \cite{CentrodeMedicinaVeterinariaForense2023}.
+
+Desde una perspectiva biogeoquímica, la deposición continua de excretas animales introduce compuestos nitrogenados susceptibles de experimentar procesos de hidrólisis, amonificación, nitrificación y volatilización. Particularmente, la urea ($CO(NH_2)_2$) constituye una fuente importante de nitrógeno que puede transformarse en amoníaco ($NH_3$) bajo determinadas condiciones fisicoquímicas, modificando el equilibrio químico del suelo y contribuyendo a cambios en el potencial de hidrógeno y la disponibilidad de nutrientes \cite{FertilizarEquipo}. El proceso de volatilización de amoníaco descrito por el Proyecto Fertilizar (INTA, 2006) establece que la hidrólisis de la urea consume protones, elevando el pH local y desplazando el equilibrio químico hacia la formación de $NH_3$ gaseoso, que se pierde a la atmósfera. Este fenómeno es particularmente relevante en el Parque Kennedy, donde la alta densidad felina genera un aporte continuo de urea.
+
+\subsection{Antecedentes de calidad de suelos en parques de Lima Metropolitana}
+
+Estudios previos han evaluado la calidad de suelos en parques recreacionales de Lima, destacando la presencia de metales pesados y variaciones en propiedades fisicoquímicas. Tello et al. (2018) analizaron suelos de seis parques metropolitanos de Lima con el objetivo principal de cuantificar plomo (Pb). Como variables de apoyo, reportaron de forma agregada que el pH del conjunto osciló entre $7.06$ y $8.19$, la conductividad eléctrica (medida en extracto de saturación) entre $1.01$ y $5.13~\text{dS/m}$, y el contenido de materia orgánica entre $2\%$ y $4\%$ en la mayoría de parques, con la excepción de Campo de Marte ($11.31\%$). Adicionalmente, señalaron que todos los parques presentaron textura franco-arenosa y que el Parque Kennedy registró la CE más baja del conjunto ($1.01~\text{dS/m}$). Los valores de pH, CE y MO se reportan en el estudio de forma narrativa para el conjunto de parques, sin una tabla de datos individuales por parque \cite{Tello2018}. La \cref{tab:comparativa_tello} sintetiza los rangos reportados.
+
+\begin{table*}[!ht]
+\centering
+\caption{Propiedades fisicoquímicas reportadas por Tello et al. (2018) para suelos de parques de Lima Metropolitana.}\label{tab:comparativa_tello}
+\begin{tabular}{@{}lp{7cm}@{}}
+\toprule
+\textbf{Parámetro} & \textbf{Rango reportado (conjunto de 6 parques)} \\
+\colrule
+pH & $7.06$ -- $8.19$ \\
+MO (\%) & $2$ -- $4$ (excepción: Campo de Marte, $11.31\%$) \\
+CE en extracto de saturación (dS/m) & $1.01$ -- $5.13$ \\
+Textura & Franco-arenosa (todos los parques) \\
+CE mínima individual & $1.01~\text{dS/m}$ (Parque Kennedy) \\
+CE máxima individual & $5.13~\text{dS/m}$ (Las Leyendas) \\
+\botrule
+\end{tabular}
+\begin{tabnote}
+Nota. Valores extraídos de la descripción narrativa de Tello et al. (2018) \cite{Tello2018}. El estudio reporta rangos generales del conjunto de parques, sin tabla de valores individuales de pH, CE y MO por parque. CE medida en extracto de saturación --- metodología distinta a la suspensión 1:2.5 empleada en el presente estudio; ver \cref{subsec:ce_metodologia}.
+\end{tabnote}
+\end{table*}
+
+Adicionalmente, Tello Peramás (2018) \cite{TelloPerams2018} investigó la eficiencia de \textit{Amaranthus caudatus} como fitoextractor de plomo en suelos de parques limeños, encontrando que los niveles de plomo en el Parque Kennedy se mantenían por debajo del estándar de calidad ambiental (ECA) para suelos ($140~\text{ppm}$), con valores históricos de $56$--$78~\text{ppm}$. Este antecedente es relevante porque indica que, si bien la contaminación por metales pesados no es crítica, los procesos de salinización y compactación pueden ser los principales factores limitantes de la fertilidad.
+
+Otro aspecto hidrogeológico relevante es que la napa freática en el distrito de Miraflores se encuentra a más de $80~\text{m}$ de profundidad \cite{GerenciadeObrasPblicas2019}, lo que limita la lixiviación natural de sales y contaminantes hacia capas profundas, favoreciendo su acumulación en la capa superficial del suelo. Esta condición, combinada con la compactación del suelo, agrava los problemas de salinización.
+
+\subsection{Muestreo y preparación de muestras de suelo}
+
+La representatividad de una muestra constituye uno de los requisitos fundamentales para garantizar la validez de los resultados analíticos. La Guía para el Muestreo de Suelos del Ministerio del Ambiente establece procedimientos para la recolección de muestras compuestas destinadas a la caracterización ambiental de matrices edáficas \cite{DireccinGeneraldeCalidadAmbiental2014}. Complementariamente, la Norma Técnica Peruana NTP 339.089 define el método de cuarteo para la obtención de muestras representativas en laboratorio, reduciendo progresivamente la masa inicial sin comprometer su homogeneidad estadística \cite{INACAL2014}.
+
+Una vez obtenida la muestra representativa, la preparación previa al análisis requiere procedimientos normalizados orientados a garantizar la uniformidad granulométrica y la eliminación de materiales ajenos al estudio. Estos criterios se encuentran establecidos en la NTP 339.090 para la preparación de muestras destinadas a ensayos físicos y químicos \cite{INACAL2021}.
+
+\subsection{Propiedades físicas del suelo}
+
+La humedad gravimétrica constituye una propiedad fundamental para la caracterización de materiales edáficos, ya que permite cuantificar el contenido de agua presente en la muestra respecto a su masa seca. Su determinación se realiza mediante secado controlado en estufa hasta alcanzar masa constante, siguiendo los lineamientos establecidos por la NTP 339.127 \cite{INACAL2019}.
+
+La textura del suelo describe la proporción relativa de partículas de arena, limo y arcilla, influyendo directamente sobre la infiltración, retención de agua, aireación y disponibilidad de nutrientes. Su determinación mediante análisis granulométrico se encuentra normalizada por la NTP 339.128 \cite{INACAL1999}. De manera complementaria, la descripción visual del suelo suele apoyarse en sistemas estandarizados de clasificación cromática como las cartas de color Munsell, ampliamente utilizadas en estudios edafológicos para la identificación de horizontes y características morfológicas \cite{MunsellColorServices2009}.
+
+Otra propiedad física relevante es la densidad aparente, definida como la relación entre la masa de suelo (en base aire-seca o seca de horno, según el protocolo empleado) y el volumen total que ocupa, incluyendo el espacio poroso. La literatura reporta convencionalmente este parámetro en base seca de horno; cuando la determinación se realiza sobre tierra fina aire-seca (como en el presente estudio, \cref{subsec:densidad}), el valor medido corresponde a base aire-seca y su conversión a base seca de horno requeriría conocer la humedad residual aire-seca (no medida experimentalmente en este trabajo). Este parámetro permite evaluar el grado de compactación y la estructura física del material. Su determinación en laboratorio puede realizarse mediante los procedimientos establecidos en la norma ASTM D7263 \cite{ASTMInternational2009}.
+
+\subsection{Propiedades químicas del suelo}
+
+El potencial de hidrógeno (pH) constituye uno de los indicadores más importantes de la calidad química del suelo debido a su influencia sobre la solubilidad de nutrientes, la actividad microbiana y la movilidad de contaminantes. La determinación potenciométrica del pH se encuentra normalizada internacionalmente mediante la norma ISO 10390 \cite{InternationalOrganizationforStandardization2021}.
+
+La conductividad eléctrica (CE) representa una medida indirecta de la concentración de sales solubles presentes en la solución del suelo. Valores elevados de CE pueden indicar procesos de acumulación salina capaces de afectar el desarrollo vegetal y modificar las propiedades fisicoquímicas del sistema. Su determinación se realiza de acuerdo con los procedimientos descritos en la norma NTP-ISO 11265 \cite{INACAL2018}.
+
+La materia orgánica desempeña un papel fundamental en la fertilidad y estabilidad estructural de los suelos. Entre los métodos más utilizados para su cuantificación destaca la pérdida por ignición (Loss on Ignition, LOI), basada en la determinación de la masa volatilizada durante un tratamiento térmico controlado. Diversos estudios han evaluado la capacidad de este procedimiento para estimar el contenido de carbono orgánico en distintos tipos de suelo, demostrando la necesidad de calibraciones específicas según las características mineralógicas y edafológicas de cada región \cite{Martnez2017,Dabadie2018}. Asimismo, el Manual para el Análisis de Suelos Agrícolas y Agua para Riego proporciona lineamientos técnicos para la evaluación integral de propiedades químicas y físicas de muestras edáficas bajo condiciones de laboratorio \cite{InstitutoNacionaldeInnovacinAgrariaINIA2021}.
+
+\subsection{Funciones químicas inorgánicas en el suelo}
+
+El suelo contiene una amplia variedad de compuestos inorgánicos que pueden clasificarse según su función química:
+
+\begin{itemize}
+  \item \textbf{Óxidos}: presentes principalmente como óxidos de hierro ($Fe_2O_3$), aluminio ($Al_2O_3$) y silicio ($SiO_2$), que constituyen la fracción mineral predominante.
+  \item \textbf{Ácidos}: como el ácido silícico ($H_4SiO_4$) y ácidos húmicos (de origen orgánico), que contribuyen a la acidez del suelo.
+  \item \textbf{Bases}: incluyen hidróxidos de calcio ($Ca(OH)_2$), magnesio ($Mg(OH)_2$) y potasio ($KOH$), que neutralizan la acidez.
+  \item \textbf{Sales}: resultado de la neutralización ácido-base, como cloruros ($NaCl$, $KCl$), sulfatos ($CaSO_4$, $MgSO_4$), carbonatos ($CaCO_3$, $MgCO_3$) y nitratos ($KNO_3$, $NH_4NO_3$). Estas sales son las principales responsables de la conductividad eléctrica y su acumulación está asociada a procesos de salinización.
+\end{itemize}
+
+En el contexto del Parque Kennedy, la hidrólisis de la urea ($CO(NH_2)_2$) genera amoníaco ($NH_3$) y dióxido de carbono ($CO_2$), los cuales, al reaccionar con el agua, producen iones amonio ($NH_4^+$), bicarbonato ($HCO_3^-$) y carbonato ($CO_3^{2-}$). Estas especies iónicas, junto con los cationes sodio ($Na^+$), potasio ($K^+$), calcio ($Ca^{2+}$) y magnesio ($Mg^{2+}$) liberados de la matriz mineral, incrementan la fuerza iónica del suelo y, por ende, la conductividad eléctrica.
+
+\subsection{Clasificación de compuestos orgánicos e inorgánicos relevantes}
+
+Para efectos de interpretación química, los principales componentes detectados o inferidos en la muestra pueden agruparse en dos familias:
+
+\begin{itemize}
+  \item \textbf{Compuestos orgánicos}: urea ($CO(NH_2)_2$), restos de excretas, fracción orgánica medida por LOI y sustancias húmicas. Son relevantes porque aportan nitrógeno y carbono, incrementan la capacidad de intercambio catiónico y mejoran la estructura del suelo cuando se encuentran estabilizados.
+  \item \textbf{Compuestos inorgánicos}: $NH_4^+$, $NO_3^-$, $CO_3^{2-}$, $HCO_3^-$, $Cl^-$, $SO_4^{2-}$, $Na^+$, $K^+$, $Ca^{2+}$ y $Mg^{2+}$. Estos controlan la CE, el equilibrio ácido-base y la disponibilidad iónica de nutrientes; en exceso, los mismos compuestos que pueden sostener la fertilidad también generan salinización y estrés osmótico.
+\end{itemize}
+
+En consecuencia, la fertilidad del suelo depende del balance entre la fracción orgánica estabilizada, que retiene nutrientes y favorece la agregación, y la fracción inorgánica soluble, que aporta nutrientes disponibles pero también puede elevar la CE cuando se acumula.
+
+\subsection{Fundamentos de termodinámica aplicados al suelo}
+
+La termodinámica química permite evaluar la dirección y espontaneidad de las reacciones que ocurren en el suelo. La energía libre de Gibbs ($\Delta G$) es el criterio de espontaneidad a temperatura y presión constantes; un proceso es espontáneo cuando $\Delta G < 0$. La relación entre $\Delta G$, la entalpía ($\Delta H$) y la entropía ($\Delta S$) está dada por la ecuación de Gibbs:
+
+\begin{equation}
+\Delta G = \Delta H - T\Delta S
+\label{eq:gibbs}
+\end{equation}
+
+donde $T$ es la temperatura absoluta en kelvin.
+
+Para una reacción química general, los cambios estándar pueden expresarse a partir de magnitudes tabuladas de formación y de entropía molar:
+
+\begin{equation}
+\Delta H^\circ_{\mathrm{rxn}} = \sum \nu_i \Delta H_f^\circ(\text{productos}) - \sum \nu_i \Delta H_f^\circ(\text{reactivos})
+\label{eq:delta_h_rxn}
+\end{equation}
+
+\begin{equation}
+\Delta S^\circ_{\mathrm{rxn}} = \sum \nu_i S^\circ(\text{productos}) - \sum \nu_i S^\circ(\text{reactivos})
+\label{eq:delta_s_rxn}
+\end{equation}
+
+En este estudio no se midieron calorimétricamente los valores de $\Delta H^\circ_{\mathrm{rxn}}$ ni $\Delta S^\circ_{\mathrm{rxn}}$ para el suelo del Parque Kennedy; por ello, esas expresiones se usan como marco de referencia para interpretar reacciones documentadas en la literatura, no como resultados experimentales propios.
+
+En el contexto de la salinización del suelo, la disolución de sales (ej. $NaCl_{(s)} \rightarrow Na^+_{(ac)} + Cl^-_{(ac)}$) generalmente es endotérmica ($\Delta H > 0$) pero va acompañada de un aumento de entropía ($\Delta S > 0$), ya que los iones en solución tienen mayor desorden que en el cristal. A temperaturas ambientales, el término $T\Delta S$ puede dominar, haciendo que $\Delta G < 0$ y la disolución sea espontánea. Sin embargo, en el Parque Kennedy, el aporte continuo de sales desde las excretas felinas mantiene el sistema fuera del equilibrio, forzando la disolución y acumulación de iones, lo que eleva la CE.
+
+La temperatura registrada durante la sesión de pH en laboratorio ($22.73~^\circ\text{C}$, es decir, $295.88~\text{K}$) aporta el valor de $T$ requerido para aplicar la relación de Gibbs en la Ecuación~\ref{eq:gibbs} cuando se dispone de $\Delta H$ y $\Delta S$ de literatura. \textbf{Esta temperatura corresponde específicamente a la sesión de pH del 18/06 (\cref{tab:ph}), que es la sesión de la cual provienen los datos de pH utilizados en el cálculo de especiación de la \cref{tab:especiacion_nh3}; no corresponde a la temperatura de campo del muestreo original ($19^\circ\text{C}$, 25 de mayo), ni a la del remuestreo (22$^\circ\text{C}$, 20 de junio), ni a la de la sesión de CE del 27/06 (\cref{tab:ce}), registrada de forma independiente en $20.13 \pm 0.25^\circ\text{C}$.} En este trabajo, esa evaluación se aplica de manera directa al equilibrio $NH_4^+/NH_3$ y a su constante de disociación, no a todas las sales presentes en la matriz. Por ello, la temperatura estacional no solo puede acelerar la cinética microbiana, sino también condicionar la fracción de especies con suficiente energía para escapar de la fase líquida o sólida y desplazarse hacia la forma gaseosa.
+
+Un análisis termodinámico cuantitativo riguroso de este proceso —determinar experimentalmente $\Delta G^\circ$ para la disolución específica de las sales presentes— requeriría datos que este estudio no midió directamente: la identidad y concentración de cada especie iónica disuelta (obtenible, por ejemplo, mediante cromatografía iónica), y su constante de equilibrio de solubilidad ($K_{ps}$) específica. La CE, si bien es un indicador robusto de la carga iónica total del sistema, no permite por sí sola derivar una constante de equilibrio química sin asumir una especie disuelta única y su coeficiente de actividad, información no disponible en este estudio. Por esta razón, el análisis termodinámico de este informe (\cref{sec:aplicaciones}) se enfoca en una reacción específica y bien caracterizada en la literatura --- la hidrólisis de la urea y el equilibrio ácido-base amonio/amoníaco--- para la cual sí existen constantes termodinámicas de referencia aplicables directamente a los datos de pH medidos.
+
+\subsection{Fundamentos de cinética química aplicados al suelo}
+
+La cinética química estudia la velocidad de las reacciones y los factores que la afectan. En el suelo, la mineralización de la materia orgánica (transformación de compuestos orgánicos en inorgánicos) sigue una cinética de primer orden, donde la velocidad de descomposición es proporcional a la concentración de sustrato:
+
+\begin{equation}
+v = k [C_{org}]
+\label{eq:cinetica_orden1}
+\end{equation}
+
+donde $k$ es la constante de velocidad, que depende de la temperatura según la ecuación de Arrhenius:
+
+\begin{equation}
+k = A e^{-E_a / (RT)}
+\label{eq:arrhenius}
+\end{equation}
+
+siendo $A$ el factor preexponencial, $E_a$ la energía de activación, $R$ la constante universal de los gases y $T$ la temperatura absoluta.
+
+Los factores que afectan la velocidad de degradación de la materia orgánica en suelos incluyen:
+
+\begin{itemize}
+  \item \textbf{Temperatura}: incrementos moderados favorecen la actividad microbiana y la velocidad de las reacciones bioquímicas del suelo.
+  \item \textbf{Humedad}: la actividad microbiana es óptima en rangos de humedad cercanos a la capacidad de campo ($\sim 20\%$--$30\%$).
+  \item \textbf{pH}: la mayoría de los cultivos y microorganismos del suelo prefieren un pH cercano a la neutralidad ($6.0$--$7.5$) \cite{USDANRCS1998}; dentro de este intervalo, el rango $6.6$--$7.3$ es particularmente favorable para la actividad microbiana responsable de la disponibilidad de nitrógeno, azufre y fósforo \cite{USDANRCS1998, PortaCasanellas1994}.
+  \item \textbf{Salinidad}: altas concentraciones de sales ($CE > 2000~\mu\text{S/cm}$) pueden inhibir la actividad enzimática y reducir la tasa de mineralización.
+\end{itemize}
+
+En el Parque Kennedy, la humedad promedio ($23.10\%$) y el pH neutro ($7.09$) son favorables para la actividad microbiana, pero la elevada salinidad ($CE = 1970~\mu\text{S/cm}$) actúa como factor limitante, disminuyendo la velocidad de descomposición de la materia orgánica y favoreciendo la acumulación de compuestos intermediarios responsables de los malos olores reportados \cite{Rath2015}. Este efecto es más pronunciado en verano, cuando el aumento de temperatura acelera la volatilización de amoníaco y sulfuros.
+
+\subsection{Calidad ambiental de suelos}
+
+La evaluación de la calidad del suelo requiere contrastar los resultados obtenidos con criterios normativos que permitan interpretar su condición ambiental. En el Perú, los Estándares de Calidad Ambiental para Suelo (Decreto Supremo N° 011-2017-MINAM) establecen valores de referencia destinados a la protección de la salud humana y los ecosistemas, constituyendo una herramienta fundamental para la gestión ambiental y la identificación de posibles riesgos asociados a procesos de contaminación \cite{MinisteriodelAmbiente2017}. En el caso del plomo, el ECA para suelos de uso residencial/parques es de $140~\text{mg/kg}$, valor que, según Tello Peramás (2018) \cite{TelloPerams2018}, no ha sido superado en el Parque Kennedy (\cref{sec:marco_teorico}).
+
+\section{Metodología Experimental}\label{sec:metodologia}
+
+\subsection{Diseño de muestreo y localización del área de estudio}\label{subsec:diseno_muestreo}
+
+El muestreo se realizó siguiendo los lineamientos de la Guía para el Muestreo de Suelos del Ministerio del Ambiente \cite{DireccinGeneraldeCalidadAmbiental2014}. El área de estudio corresponde al Parque John F. Kennedy, ubicado en el distrito de Miraflores (Lima, Perú), en la intersección de la Av. José Larco con la Calle Schell. El objetivo principal del muestreo fue obtener una muestra compuesta representativa del suelo superficial en el Área Potencialmente Impactada (API) del parque, con la finalidad de realizar su caracterización fisicoquímica preliminar. La ubicación general y la delimitación del área de muestreo se presentan en las figuras que se describen a continuación.
+
+La \cref{fig:macrolocalizacion} muestra la ubicación del distrito de Miraflores dentro del contexto metropolitano de Lima, permitiendo visualizar la relación entre el área de estudio y el entorno urbano mayor.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=82mm]{Macrolocalización.pdf}
+\caption{Mapa de macrolocalización del área de estudio. Ubicación del distrito de Miraflores dentro del contexto metropolitano de Lima, permitiendo visualizar la relación entre el área de estudio y el entorno urbano mayor.}
+\label{fig:macrolocalizacion}
+\end{figure}
+
+La \cref{fig:microlocalizacion} presenta un detalle geográfico a escala local que delimita el emplazamiento específico del parque, identificando sus límites inmediatos y el área de intervención directa del muestreo.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=82mm]{Microlocalización.pdf}
+\caption{Mapa de microlocalización del Parque John F. Kennedy. Detalle geográfico a escala local que delimita el emplazamiento específico del parque, identificando sus límites inmediatos y el área de intervención directa del muestreo. \textit{Nota: la medición en pantalla visible en la captura ($9\,207.69~\text{m}^2$) es un valor aproximado de una herramienta de medición distinta a la empleada en la \cref{fig:apc_microlocalizacion} ($8\,975.75~\text{m}^2$, apéndice C); este último se adopta como área de referencia oficial del parque en este informe.}}
+\label{fig:microlocalizacion}
+\end{figure}
+
+La \cref{fig:plano_vial} muestra un plano detallado de las vías de acceso y calles aledañas al parque, utilizado para evaluar la accesibilidad, el flujo vehicular y su impacto potencial como fuente de agentes contaminantes en el suelo. El acceso al sitio se realizó principalmente a través de la Av. José Larco (eje arterial principal), la Av. Diagonal y la Calle Schell, con ingreso peatonal dentro del parque.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=82mm]{Plano vial de Carreteras.pdf}
+\caption{Esquema de la red vial circundante al área de estudio. Plano detallado de las vías de acceso y calles aledañas al parque, utilizado para evaluar la accesibilidad, el flujo vehicular y su impacto potencial como fuente de agentes contaminantes en el suelo.}
+\label{fig:plano_vial}
+\end{figure}
+
+El muestreo se realizó el lunes 25 de mayo de 2026, en el horario de 19:05 a 21:30 h, con una temperatura ambiental de $19^\circ\text{C}$. Se delimitó un Área Potencialmente Impactada (API) nominal de $10~\text{m} \times 10~\text{m}$ ($100~\text{m}^2$), correspondiente a una zona de alta concentración de fauna felina y tránsito peatonal, diseñada en gabinete mediante el software QGIS. El número total de puntos fue de 20 incrementos, georreferenciados con precisión mediante el mismo software (nomenclatura PK-01 a PK-20).
+
+Las coordenadas UTM registradas (\cref{tab:coordenadas_muestreo}) muestran que el patrón efectivamente ejecutado en campo no correspondió a una rejilla interna regular, sino a un \textbf{recorrido perimetral aproximadamente cerrado} en torno al área delimitada: la secuencia cronológica de puntos (PK-01 a PK-20) avanza desde el extremo norte (PK-01) hacia el extremo oeste (PK-06), continúa hacia el extremo sur (PK-11), asciende hacia el extremo este (PK-16) y cierra el recorrido de vuelta al punto de partida (PK-20), describiendo un contorno cerrado en lugar de una malla de filas y columnas internas. Esta topología de lazo, y no un error de posicionamiento aislado, explica que la dispersión máxima medida (rango real de $14.20~\text{m}$ E-O $\times$ $13.29~\text{m}$ N-S, \cref{tab:coordenadas_muestreo}) supere sensiblemente el lado nominal de $10~\text{m}$ del diseño de gabinete: al tratarse de un perímetro y no de puntos interiores, el bounding box resultante es naturalmente mayor que el cuadrado de referencia. Se atribuye esta divergencia entre diseño nominal y ejecución real a la necesidad de bordear elementos físicos del parque (jardineras, bancas, senderos) que impidieron trazar una rejilla interna regular, en combinación con el margen de error propio de la georreferenciación con GPS de mano bajo el dosel arbóreo denso característico del Parque Kennedy. Se recomienda para futuros muestreos el uso de estación total o GPS diferencial (RTK) y la marcación previa de los puntos en campo antes de iniciar la recolección, a fin de minimizar este desvío. Los incrementos se combinaron para formar una muestra compuesta de $2000~\text{g}$.
+
+La \cref{fig:capa_cartografica} muestra el entorno técnico de trabajo desarrollado en AutoCAD, donde se han estructurado las capas (layers) cartográficas que contienen la geometría topográfica y las referencias espaciales del Parque Kennedy. Esta capa constituye la base vectorial necesaria para el manejo de la información espacial, permitiendo la superposición de datos de muestreo y el cálculo preciso de áreas de intervención sobre una base geométrica estandarizada.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=82mm]{Capa Cartográfica (AutoCAD).pdf}
+\caption{Capa cartográfica digitalizada en entorno CAD. Entorno técnico de trabajo desarrollado en AutoCAD, donde se han estructurado las capas (layers) cartográficas que contienen la geometría topográfica y las referencias espaciales del Parque Kennedy.}
+\label{fig:capa_cartografica}
+\end{figure}
+
+La \cref{fig:puntos_muestreo} presenta un mapa que despliega la ubicación exacta de los 20 puntos de muestreo mediante coordenadas de referencia, garantizando la precisión geográfica necesaria para el análisis de los datos recolectados en campo.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=82mm]{Capa Georreferenciada.pdf}
+\caption{Representación espacial de la capa georreferenciada del área de estudio. Mapa que despliega la ubicación exacta del Parque Kennedy mediante coordenadas de referencia, garantizando la precisión geográfica necesaria para el análisis de los datos recolectados en campo.}
+\label{fig:puntos_muestreo}
+\end{figure}
+
+La \cref{tab:coordenadas_muestreo} presenta las coordenadas UTM, la hora, la profundidad, el color según la carta Munsell \cite{MunsellColorServices2009} y la humedad organoléptica de cada punto. La humedad se clasificó en campo como seco, húmedo o saturado. El olor también fue registrado, pero se omite en esta tabla por claridad; el registro completo se incluye en los anexos.
+
+\begin{table}[!ht]
+\centering
+\small
+\caption{Registro de campo de los 20 puntos de muestreo (coordenadas UTM, hora y color Munsell).}\label{tab:coordenadas_muestreo}
+\begin{tabular}{@{}lllll@{}}
+\toprule
+\textbf{ID} & \textbf{Hora} & \textbf{X (Este)} & \textbf{Y (Norte)} & \textbf{Color Munsell} \\
+\colrule
+PK-01 & 19:05 & 279,009.33 & 8,659,176.47 & 10YR 2/1 \\
+PK-02 & 19:14 & 279,008.23 & 8,659,174.26 & 10YR 2/2 \\
+PK-03 & 19:21 & 279,007.13 & 8,659,173.15 & 10YR 3/1 \\
+PK-04 & 19:32 & 279,006.03 & 8,659,170.94 & 10YR 3/2 \\
+PK-05 & 19:38 & 279,004.93 & 8,659,169.83 & 10YR 3/3 \\
+PK-06 & 19:44 & 279,003.83 & 8,659,167.62 & 10YR 4/1 \\
+PK-07 & 19:51 & 279,006.01 & 8,659,167.61 & 10YR 4/3 \\
+PK-08 & 19:55 & 279,007.10 & 8,659,166.51 & 10YR 4/2 \\
+PK-09 & 20:09 & 279,009.28 & 8,659,165.40 & 7.5YR 2.5/1 \\
+PK-10 & 20:20 & 279,010.37 & 8,659,164.29 & 7.5YR 2.5/2 \\
+PK-11 & 20:24 & 279,012.55 & 8,659,163.18 & 7.5YR 3/2 \\
+PK-12 & 20:29 & 279,013.65 & 8,659,164.29 & 7.5YR 3/3 \\
+PK-13 & 20:36 & 279,014.74 & 8,659,166.50 & 7.5YR 4/2 \\
+PK-14 & 20:41 & 279,015.84 & 8,659,167.61 & 10YR 3/4 \\
+PK-15 & 20:46 & 279,016.93 & 8,659,169.83 & 10YR 2.5/1 \\
+PK-16 & 20:54 & 279,018.03 & 8,659,172.04 & 5YR 3/2 \\
+PK-17 & 21:03 & 279,015.85 & 8,659,172.04 & 2.5YR 3/2 \\
+PK-18 & 21:12 & 279,014.76 & 8,659,173.15 & 10YR 4/4 \\
+PK-19 & 21:22 & 279,012.58 & 8,659,174.26 & 7.5YR 3/1 \\
+PK-20 & 21:30 & 279,010.40 & 8,659,175.36 & 10YR 3.5/2 \\
+\botrule
+\end{tabular}
+\begin{tabnote}
+Nota. Las coordenadas corresponden al sistema UTM (WGS 84, zona 18 Sur). La nomenclatura de color sigue el Sistema de Notación Munsell \cite{MunsellColorServices2009}. Los datos de profundidad, humedad organoléptica y olor se incluyen en los anexos.
+\end{tabnote}
+\end{table}
+
+La \cref{fig:punto_muestreo} muestra un registro in situ del proceso de recolección de muestras (sonda manual) en el Parque Kennedy, mostrando las condiciones del terreno al momento de la extracción de material para su posterior análisis de laboratorio.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=82mm]{Punto de muestreo.pdf}
+\caption{Evidencia fotográfica de la toma de muestras de suelo. Registro in situ del proceso de recolección de muestras (sonda manual) en el Parque Kennedy, mostrando las condiciones del terreno al momento de la extracción de material para su posterior análisis de laboratorio.}
+\label{fig:punto_muestreo}
+\end{figure}
+
+\subsection{Equipos y materiales de campo}
+
+Para la recolección de las muestras se utilizó un kit de muestreo profesional que incluyó: guantes quirúrgicos estériles Alkhofar (talla 7) de un solo uso, espátula de acero inoxidable desinfectada, recipientes de polietileno de primer uso (100 mL) con cierre hermético, marcadores de tinta indeleble y etiquetas de seguridad. Se emplearon 20 frascos de polietileno de 100 mL (tipo envase para heces) que aseguran la inocuidad y hermeticidad de cada incremento de aproximadamente $100~\text{g}$.
+
+\subsection{Equipos y materiales de laboratorio}\label{subsec:equipos_laboratorio}
+
+Para las determinaciones fisicoquímicas en laboratorio se emplearon los siguientes equipos: una estufa de secado ECOCELL (Horno Ecocell) para la humedad gravimétrica y el pretratamiento térmico de las muestras a $105^\circ\text{C}$; una probeta graduada de volumen conocido para la determinación de densidad aparente por el método de volumen fijo (ASTM D7263); sensores Vernier (pH y conductividad eléctrica) acoplados a una interfaz Vernier LabQuest 2, con el software Vernier Graphical Analysis para la adquisición y registro de datos; una balanza analítica OHAUS Pioneer, con precisión de hasta cuatro decimales ($0.0001~\text{g}$), para el pesaje de los crisoles y las masas de la determinación de materia orgánica; un agitador mecánico de tamices W.S. Tyler (modelo RX-812-3) para el análisis granulométrico, con columna de tamices bajo especificación ASTM E-11; y una mufla Protherm Furnaces para la calcinación de la muestra a $505^\circ\text{C}$ (método LOI). Todos los equipos fueron calibrados antes de su uso, siguiendo las recomendaciones de los fabricantes y las normas técnicas correspondientes; en particular, la mufla cuenta con certificado de calibración vigente emitido por METROTEC (N.° MT-LTT-067-2025, fecha de calibración: 5 de marzo de 2025) y servicio de mantenimiento documentado (Informe N.° IM-HP-071-2025, 6 de marzo de 2025). \textbf{Nota sobre vigencia de calibración:} el certificado METROTEC N.° MT-LTT-067-2025 tiene un período de vigencia de 16 meses a partir de la fecha de calibración (5 de marzo de 2025), es decir, vence el 5 de julio de 2026. El ensayo LOI de este estudio se ejecutó el 30 de junio de 2026, dentro del período de vigencia, aunque con un margen ajustado de apenas 5 días respecto al vencimiento. Se recomienda para estudios futuros programar la calcinación con mayor antelación al vencimiento del certificado, a fin de evitar situaciones límite como la presente.
+
+\subsection{Pretratamiento de la muestra y estrategia de muestreo adaptativo}
+
+\subsubsection{Lote 1: muestra compuesta para parámetros estables}\label{subsec:lote1}
+
+En el laboratorio, se aplicó el método de cuarteo (NTP 339.089) \cite{INACAL2014} a los $2000~\text{g}$ recolectados en campo para obtener una muestra representativa de trabajo de $1000~\text{g}$. De esta masa se separaron de forma prioritaria, \textbf{antes del secado al aire y del tamizado}: (i) tres alícuotas de $30.00~\text{g}$ ($90~\text{g}$ en total) para la determinación de humedad gravimétrica, dado que la humedad es un parámetro volátil que debe determinarse sobre suelo en condiciones de campo \cite{INACAL2019}; y (ii) $300~\text{g}$ para el ensayo de textura, que por definición metodológica (NTP 339.128, \cref{subsec:textura_metodologia}) requiere la curva granulométrica completa sin tamizado previo por malla N°10, y que por tanto debía apartarse antes de que el resto de la muestra fuera tamizado.
+
+El remanente de $610~\text{g}$ ($1000-90-300$) fue sometido a un pretratamiento de secado al aire y posterior tamizado mediante malla ASTM N°10 (abertura $2~\text{mm}$), siguiendo los lineamientos de la NTP 339.090 \cite{INACAL2021}. Esta fracción $<2~\text{mm}$ constituye la denominada \textit{tierra fina}, que es la única fracción reconocida por las normas internacionales de análisis de suelos como matriz analítica representativa \cite{InstitutoNacionaldeInnovacinAgrariaINIA2021}. La eliminación de la fracción $>2~\text{mm}$ (gravas, material orgánico grueso y restos biológicos) garantiza la homogeneidad entre réplicas, la comparabilidad interensayo y la aplicabilidad directa de los protocolos normalizados (ISO 10390, NTP-ISO 11265), todos los cuales especifican la tierra fina como sustrato de trabajo.
+
+\textbf{Nota sobre la masa de tierra fina recuperada:} a diferencia de la fracción de $910~\text{g}$ reportada en una versión preliminar de este informe, la masa efectivamente sometida a tamizado en esta versión corregida es de $610~\text{g}$, ya que los $300~\text{g}$ de textura se apartaron junto con la humedad, antes del tamizado, y no después. Según el registro de bitácora, la fracción retenida en la malla N°10 ($>2~\text{mm}$) en este tamizado fue de $\approx 100~\text{g}$ —la misma masa de descarte observada en la versión preliminar del balance—, por lo que la tierra fina recuperada ($<2~\text{mm}$) de este remanente de $610~\text{g}$ es de $\approx 510~\text{g}$.
+
+\textbf{Nota importante para el ensayo de textura:} el análisis granulométrico (NTP 339.128) se realizó sobre la alícuota de $300~\text{g}$ de muestra seca separada \textbf{antes del tamizado por malla N°10}, a fin de obtener la curva granulométrica completa (incluyendo la fracción gravilla $>2~\text{mm}$). Por tanto, la matriz para textura es distinta de la ``tierra fina'' usada en pH, CE y densidad aparente, y su origen físico es independiente del lote de $610~\text{g}$ tamizado posteriormente (ver \cref{subsec:textura_metodologia}).
+
+La fracción retenida en la malla N°10 en el tamizado del remanente de $610~\text{g}$ ($\approx 100~\text{g}$, según bitácora), descartada del análisis, consistía principalmente en gravilla ($>2~\text{mm}$) propia de los depósitos de Grava de Lima que conforman el subsuelo del distrito de Miraflores \cite{MunicipalidadDistritaldeMiraflores2019}, conforme a las observaciones de campo registradas en la Ficha de Muestreo (presencia de fracción $>2~\text{mm}$ estimada entre 20\% y 40\% en la capa superficial).
+
+\subsubsection{Por qué el Lote 1 no puede utilizarse para la determinación de materia orgánica}
+
+El remanente disponible del Lote 1 ($\approx 90~\text{g}$) e reserva, post-consumo de todos los ensayos) no fue utilizado para la determinación de materia orgánica por tres razones técnicas concurrentes:
+
+\begin{enumerate}
+  \item \textbf{Labilidad temporal de la fracción orgánica:} La Guía para el Muestreo de Suelos del MINAM (2014) \cite{DireccinGeneraldeCalidadAmbiental2014} y el manual INIA (2021) \cite{InstitutoNacionaldeInnovacinAgrariaINIA2021} establecen que las muestras destinadas a la determinación de materia orgánica deben analizarse dentro de un plazo máximo de $14$ días desde la fecha de recolección para evitar la mineralización prematura del carbono orgánico ($C_{org} \rightarrow CO_2$) por actividad microbiana residual. El Lote 1 fue recolectado el 25 de mayo; la primera disponibilidad de tiempo de laboratorio para ejecutar el ensayo LOI superaba ampliamente ese umbral, invalidando su uso para este parámetro.
+
+  \item \textbf{Secado al aire previo:} La fracción del Lote 1 destinada a los ensayos de pH, CE y textura fue sometida a secado al aire ambiente y tamizado en seco (pretratamiento normalizado para esos ensayos). Este procedimiento altera el estado natural de la materia orgánica y no es compatible con el protocolo LOI, que requiere suelo con la menor alteración térmica previa posible antes de la etapa de secado a $105^{\circ}\text{C}$ \cite{Hoogsteen2015}.
+
+  \item \textbf{Frescura de la fracción lábil:} El contenido de materia orgánica lábil (ácidos húmicos, fúlvicos y fracción microbiana activa) es sensible al manejo post-muestreo. La obtención del Lote 2 mediante remuestreo in-situ el 20 de junio, procesado en estufa el 26 de junio (a $6$ días del muestreo, bien dentro del plazo normativo de $14$ días), garantiza la integridad de la fracción orgánica medida.
+\end{enumerate}
+
+\subsubsection{Lote 2: remuestreo de frescura para materia orgánica}\label{subsec:lote2}
+
+El 20 de junio se realizó un remuestreo puntual en el punto central del API (UTM WGS84: 279010.96 E, 8659169.56 N), extrayendo una muestra virgen de $\approx 50~\text{g}$ a $0$--$10~\text{cm}$ de profundidad. De este material se separó una alícuota húmeda de $16.59~\text{g}$ para el ensayo LOI, ingresada a estufa el 26 de junio y retirada el 27 de junio con una masa seca de $12.3783~\text{g}$ (cumplidas $24$ horas a $105^{\circ}\text{C}$). La calcinación en mufla a $505^{\circ}\text{C}$ se realizó el 30 de junio, completando el ciclo dentro del plazo de trazabilidad.
+
+\subsubsection{Reevaluación de la conductividad eléctrica}
+
+Durante la sesión del 18 de junio en el Laboratorio E-101, el sensor Vernier Conductivity utilizado para la determinación de CE presentó lecturas anómalas en las tres réplicas ($R1 = 2182~\mu\text{S/cm}$, $R2 = 3173~\mu\text{S/cm}$, $R3 = 2673~\mu\text{S/cm}$; promedio $2676 \pm 495~\mu\text{S/cm}$), con una desviación estándar relativa del $18.5\%$, muy superior al límite aceptable de $\leq 5\%$ para ensayos de CE en suspensión. La causa identificada fue una calibración deficiente del equipo, no verificada con soluciones patrón antes de esa sesión. Dado que la NTP-ISO 11265 \cite{INACAL2018} exige calibración previa con patrones de conductividad certificados ($1413~\mu\text{S/cm}$ y $12.88~\text{mS/cm}$), esas mediciones fueron invalidadas en su totalidad y descartadas de los resultados. El ensayo fue reevaluado el 27 de junio con el equipo correctamente calibrado, obteniéndose los valores definitivos reportados en la \cref{tab:ce}.
+
+Por esta razón, únicamente el valor obtenido mediante el protocolo definitivo ($1970~\mu\text{S/cm}$) se empleó en el análisis, discusión y conclusiones del presente estudio.
+
+\subsection{Balance de masas y bitácora de ensayo}
+
+La muestra de trabajo se dividió en alícuotas para cada ensayo, siguiendo el balance de masas descrito en la \cref{tab:balance_masas_v1}. Todas las determinaciones se realizaron por triplicado ($n=3$) para garantizar la precisión estadística. La materia orgánica se determinó sobre el Lote 2 (remuestreo de frescura) por las razones descritas en la sección anterior.
+
+\begin{table}[!ht]
+\centering
+\small
+\caption{Balance de masas post-cuarteo, corregido (Lote 1).}\label{tab:balance_masas_v1}
+\begin{tabular}{@{}p{4.2cm}cc@{}}
+\toprule
+\textbf{Etapa / Ensayo} & \textbf{g/réplica} & \textbf{g total} \\
+\colrule
+\multicolumn{3}{@{}l}{\textit{Separado antes de secado y tamizado:}} \\
+Humedad & $30.00$ & $90.00$ \\
+Textura (sin tamizar) & $100.00$ & $300.00$ \\
+\colrule
+\textbf{Subtotal separado previo} & & $390.00$ \\
+\textbf{Remanente sometido a secado + tamizado N°10} & & $610.00$ \\
+\colrule
+\multicolumn{3}{@{}l}{\textit{Resultado del tamizado (según bitácora):}} \\
+Tierra fina recuperada ($<2$~mm) & & $510.00$ \\
+Fracción $>2$~mm descartada & & $100.00$ \\
+\colrule
+\multicolumn{3}{@{}l}{\textit{Consumo de tierra fina en ensayos post-tamizado:}} \\
+Densidad aparente & $100.00$ & $300.00$ \\
+pH (1:2.5) & $20.00$ & $60.00$ \\
+CE reevaluada (1:2.5) & $20.00$ & $60.00$ \\
+\colrule
+\textbf{Consumo total de tierra fina (Da+pH+CE)} & & $420.00$ \\
+\textbf{Tierra fina remanente sin usar} & & $90.00$ \\
+\botrule
+\end{tabular}
+\begin{tabnote}
+Nota. Masa inicial post-cuarteo: $1000~\text{g}$. Los $300~\text{g}$ de textura y los $90~\text{g}$ de humedad se separaron \textbf{antes} del secado al aire y el tamizado (\cref{subsec:lote1}), por lo que el remanente sometido a tamizado es de $610~\text{g}$ y no de $910~\text{g}$ como se indicó en una versión preliminar de este balance. Según el registro de bitácora, la fracción $>2~\text{mm}$ descartada en este tamizado fue de $\approx 100~\text{g}$, resultando en una tierra fina recuperada de $\approx 510~\text{g}$, de la cual $420~\text{g}$ se emplearon en los ensayos post-tamizado (Da, pH, CE) y $\approx 90~\text{g}$ quedaron como remanente sin usar. Materia orgánica (LOI) determinada sobre Lote 2 (alícuota húmeda de $16.59~\text{g}$, masa seca $12.3783~\text{g}$), independiente del Lote 1 por restricción de frescura ($\leq 14$ días).
+\end{tabnote}
+\end{table}
+
+\subsection{Medidas de aseguramiento de la calidad del muestreo}
+
+Para evitar la contaminación cruzada entre puntos de muestreo, las herramientas (espátula de acero inoxidable) fueron desinfectadas con alcohol isopropílico entre cada incremento. Antes de la extracción de cada muestra, se removió la capa vegetal superficial sin alterar el suelo mineral. Las muestras fueron selladas herméticamente de forma inmediata tras la toma para evitar la pérdida de humedad higroscópica y la volatilización de compuestos nitrogenados. Se mantuvieron en oscuridad y se transportaron en una conservadora a una temperatura controlada no menor a $4^\circ\text{C}$ hasta su recepción en el laboratorio.
+
+\subsection{Plan de salud y seguridad del operario}
+
+Durante toda la campaña de campo, se estableció el uso obligatorio de equipos de protección personal (EPP), incluyendo mascarilla y guantes quirúrgicos estériles (Alkhofar), para mitigar riesgos biológicos derivados de la población felina (zoonosis) y riesgos químicos por la posible presencia de raticidas o pesticidas (cumarinas) detectados previamente en el parque \cite{CentrodeMedicinaVeterinariaForense2023}.
+
+\subsection{Plan de cadena de custodia}
+
+Cada recipiente fue rotulado inmediatamente después de la recolección con el ID del punto (PK-01 a PK-20), la fecha, la hora exacta y las coordenadas UTM. Se completó la Ficha de Muestreo oficial del MINAM para asegurar la trazabilidad y la validez documental de los resultados ante las partes interesadas (gestión municipal del parque y autoridades ambientales competentes).
+
+\subsection{Determinación de humedad gravimétrica (NTP 339.127)}
+
+Se pesaron tres alícuotas de aproximadamente $30.00~\text{g}$ de suelo húmedo (peso inicial $W_h$) en cápsulas de porcelana previamente taradas. Las muestras se introdujeron en estufa a $105^\circ\text{C} \pm 2^\circ\text{C}$ durante $24$ horas, hasta alcanzar masa constante (peso seco $W_s$). La humedad gravimétrica ($H$, en porcentaje) se calculó mediante la \cref{eq:humedad}. Los resultados se expresaron como promedio $\pm$ desviación estándar.
+
+\begin{equation}
+H = \frac{W_h - W_s}{W_s} \times 100
+\label{eq:humedad}
+\end{equation}
+
+\subsection{Determinación de densidad aparente (ASTM D7263)}
+
+La densidad aparente se determinó siguiendo el método directo de volumen conocido de la norma ASTM D7263 \cite{ASTMInternational2009}. Se tomaron tres alícuotas de **tierra fina** ($<2~\text{mm}$, obtenida tras cuarteo, secado al aire y tamizado según NTP 339.090, \cref{subsec:lote1}) y se depositaron en probetas graduadas, compactando ligeramente por golpeteo para eliminar espacios vacíos grandes, hasta registrar el volumen aparente ocupado. La masa neta de suelo se obtuvo por diferencia entre la probeta con muestra y la probeta vacía. La densidad aparente ($\rho_b$) se calculó como:
+
+\begin{equation}
+\rho_b = \frac{W_m}{V}
+\label{eq:densidad_aparente_directa}
+\end{equation}
+
+donde $W_m$ es la masa neta de tierra fina (base aire-seca, tal como se pesó para la medición volumétrica) y $V$ el volumen aparente ocupado, expresada en $\text{g/cm}^3$. Las tres réplicas se procesaron de manera independiente y los resultados se reportaron como promedio $\pm$ desviación estándar.
+
+\textbf{Nota sobre la base de reporte:} el valor obtenido mediante la \cref{eq:densidad_aparente_directa} corresponde a una densidad aparente en \textit{base aire-seca} (suelo ya secado al aire y tamizado a $<2~\text{mm}$ antes de la medición volumétrica). **No se aplicó la corrección a base de horno (105°C) usando la humedad de campo ($H=23.10\%$)**, porque dicha humedad corresponde al estado original del suelo en campo, no al estado aire-seco de la alícuota medida. El contenido de humedad residual del suelo aire-seco no fue determinado en este estudio (típicamente 1--2\% para suelos franco-arenosos); por tanto, la conversión rigurosa a base seca de horno requeriría ese dato. Ambos valores (base aire-seca medida y base seca de horno estimada) se discuten en la \cref{tab:densidad} y en la \cref{subsec:limitaciones_generales} para transparencia metodológica.
+
+\textbf{Nota sobre la representatividad de la muestra:} el procedimiento descrito emplea alícuotas de suelo disturbado (ya sometidas a cuarteo, secado al aire y tamizado), vertidas y ligeramente compactadas por golpeteo en una probeta graduada, en lugar de un núcleo de suelo intacto extraído directamente del terreno (método estándar recomendado por la norma ASTM D7263 para una determinación de densidad aparente \textit{in situ}). En consecuencia, el valor obtenido refleja la densidad de empaquetamiento del material recolectado y manipulado bajo este procedimiento específico, y no necesariamente la compactación real del suelo en su estado natural no disturbado. Esta limitación se retoma en la \cref{subsec:limitaciones_generales}.
+
+\subsection{Medición de pH y conductividad eléctrica (ISO 10390 y NTP-ISO 11265)}\label{subsec:ce_metodologia_prep}
+
+Para la determinación del pH y la conductividad eléctrica se prepararon suspensiones suelo-agua en relación $1:2.5$ (peso/volumen) utilizando frascos independientes para cada parámetro: tres frascos para pH y tres frascos adicionales para CE, asegurando la independencia de las determinaciones. En cada frasco, se pesaron $20.00~\text{g}$ de suelo seco y se añadieron $50~\text{mL}$ de agua desionizada. Las suspensiones se agitaron magnéticamente durante $5$ minutos y se dejaron reposar durante $1$ hora.
+
+El pH se midió con un sensor Vernier pH acoplado a una interfaz LabQuest 2, previamente calibrado con soluciones buffer de pH $4.01$, $7.00$ y $10.01$ a $25^\circ\text{C}$. La conductividad eléctrica se determinó con un sensor Vernier Conductivity, calibrado con soluciones patrón de $1413~\mu\text{S/cm}$ y $12.88~\text{mS/cm}$ a $25^\circ\text{C}$. Ambos sensores se conectaron al software Vernier Graphical Analysis, que permitió la adquisición en tiempo real y el registro automatizado de las lecturas. La temperatura de cada suspensión se registró simultáneamente para la compensación automática de las mediciones. Los resultados se expresaron en unidades de pH y $\mu\text{S/cm}$ (microsiemens por centímetro) a $25^\circ\text{C}$.
+
+\subsection{Consideración metodológica sobre la comparabilidad de la conductividad eléctrica}\label{subsec:ce_metodologia}
+
+La conductividad eléctrica determinada en el presente estudio se obtuvo mediante el método de suspensión suelo-agua en relación $1:2.5$ (NTP-ISO 11265) \cite{INACAL2018}. Sin embargo, el estudio de referencia utilizado como línea base (Tello et al., 2018) reportó la CE mediante extracto de saturación y medición directa en campo post-riego \cite{Tello2018}, protocolos que difieren del empleado aquí. La CE es altamente sensible a la relación suelo:agua utilizada; estudios de calibración en suelos de textura similar han demostrado que los valores obtenidos en extracto de saturación ($CE_e$) y en suspensión $1:2.5$ no son directamente equivalentes, y que la relación entre ambos depende de la textura, el contenido de materia orgánica y la presencia de carbonatos \cite{Kargas2024, Chiaradia2024}. Por esta razón, la comparación cuantitativa de la CE del presente estudio con la reportada por Tello et al. (2018) debe interpretarse como una referencia indicativa de tendencia, y no como una diferencia numérica exacta.
+
+\subsection{Análisis granulométrico y textura (NTP 339.128)}\label{subsec:textura_metodologia}
+
+La determinación de la textura del suelo se realizó mediante análisis granulométrico por tamizado mecánico seco, siguiendo la norma NTP 339.128 \cite{INACAL1999}. Se empleó una serie estándar de ocho tamices (N°4, N°10, N°20, N°40, N°60, N°100, N°200 y fondo) montados en un agitador mecánico automatizado. \textbf{Para este ensayo se utilizaron $300~\text{g}$ de muestra seca proveniente del Lote 1 \textit{sin el tamizado previo por malla N°10 (2~mm)}}, procesados en tres réplicas de $100~\text{g}$ cada una. Esto permite caracterizar la distribución granulométrica completa, incluyendo la fracción gravilla ($>2~\text{mm}$) retenida en la malla N°4 y N°10. El porcentaje retenido en cada malla se calculó respecto a la masa total seca. La fracción $<2~\text{mm}$ (tierra fina) obtenida tras tamizado por N°10 (\cref{subsec:lote1}) es la matriz analítica utilizada para los ensayos de pH, CE y densidad aparente, no para el análisis de textura, que requiere la curva granulométrica completa.
+
+\subsection{Determinación de materia orgánica por pérdida por ignición (LOI)}
+
+La determinación del contenido de materia orgánica se realizó mediante el método de pérdida por ignición (LOI), siguiendo los lineamientos generales reportados en la literatura para suelos de textura similar \cite{Hoogsteen2015, Combs1998}. De la masa seca total del Lote 2 obtenida tras el secado a $105^\circ\text{C}$ ($12.3783~\text{g}$, \cref{subsec:lote2}), se tomó una \textbf{sub-alícuota de $6.8472~\text{g}$} para la calcinación en mufla, la cual se colocó en un crisol de porcelana previamente tarado en balanza analítica (OHAUS Pioneer, precisión $0.0001~\text{g}$). La muestra se calcinó en una mufla Protherm Furnaces a una temperatura de $505^\circ\text{C}$ durante un tiempo efectivo de $3$ horas (de 09:36 a 12:40). Transcurrido el tiempo de calcinación, el crisol se retiró y se enfrió inicialmente al aire durante $5$ minutos, y posteriormente en un desecador con sílica gel durante $15$ minutos hasta alcanzar temperatura ambiente. La masa final se registró por triplicado hasta obtener masa constante. El contenido de materia orgánica ($\%\text{MO}$) se calculó como la relación entre la masa volatilizada (diferencia entre la masa seca y la masa de cenizas) y la masa seca inicial de la sub-alícuota analizada ($6.8472~\text{g}$), expresada en porcentaje \cite{Hoogsteen2015}.
+
+\subsection{Control de calidad en el laboratorio}
+
+Todos los equipos fueron calibrados antes de cada sesión de medición, siguiendo los protocolos establecidos por los fabricantes. Durante cada ensayo, se registraron en la bitácora de laboratorio los valores de temperatura, humedad relativa y cualquier observación relevante. Los resultados se registraron en formato digital y se aplicó estadística descriptiva (promedio, desviación estándar) usando el software Vernier Graphical Analysis y hojas de cálculo.
+
+\section{Resultados y Análisis}\label{sec:resultados}
+
+En esta sección se presentan los resultados obtenidos para los seis parámetros fisicoquímicos determinados en la muestra de suelo del Parque Kennedy: humedad gravimétrica, densidad aparente, potencial de hidrógeno (pH), conductividad eléctrica (CE), textura granulométrica y materia orgánica (método LOI). Todas las mediciones se realizaron por triplicado ($n=3$) y los valores se expresan como promedio $\pm$ desviación estándar.
+
+\subsection{Humedad gravimétrica}\label{subsec:humedad}
+
+La humedad gravimétrica se determinó según la NTP 339.127 \cite{INACAL2019}. En la \cref{tab:humedad} se presentan los valores obtenidos para las tres réplicas.
+
+\begin{table}[!ht]
+\centering
+\small
+\caption{Resultados de humedad gravimétrica.}\label{tab:humedad}
+\begin{tabular}{@{}lcc@{}}
+\toprule
+\textbf{Réplica} & \textbf{Peso húmedo (g)} & \textbf{Humedad (\%)} \\
+\colrule
+1 & $30.00$ & $23.49$ \\
+2 & $30.00$ & $22.71$ \\
+3 & $30.00$ & $23.10$ \\
+\colrule
+\textbf{Promedio} & & $23.10 \pm 0.39$ \\
+\botrule
+\end{tabular}
+\end{table}
+
+El valor promedio de $23.10\% \pm 0.39\%$ indica un contenido de agua característico de suelos urbanos con riego frecuente por aspersión, como es el caso del Parque Kennedy. Este nivel de humedad es adecuado para la actividad microbiana y el desarrollo vegetal, aunque debe ser evaluado en conjunto con la salinidad para determinar su disponibilidad real para las plantas. La humedad actúa como un factor crítico que modula la velocidad de hidrólisis de la urea y la volatilización de amoníaco; una humedad elevada favorece la actividad enzimática (ureasa) y la mineralización de la materia orgánica, pero también puede intensificar la movilidad de sales si el drenaje es deficiente.
+
+\subsection{Densidad aparente}\label{subsec:densidad}
+
+La densidad aparente se determinó mediante el método directo de volumen fijo (ASTM D7263) \cite{ASTMInternational2009}. Los resultados se muestran en la \cref{tab:densidad}.
+
+\begin{table}[!ht]
+\centering
+\small
+\caption{Resultados de densidad aparente (base aire-seca y estimación a base seca de horno).}\label{tab:densidad}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+\textbf{Réplica} & \textbf{Volumen} & \textbf{Masa neta} & $\boldsymbol{\rho_b}$ \textbf{aire-seca} \\
+ & \textbf{(mL)} & \textbf{(g)} & \textbf{(g/cm³)} \\
+\colrule
+1 & $62.0$ & $101.27$ & $1.63$ \\
+2 & $65.0$ & $101.03$ & $1.55$ \\
+3 & $62.0$ & $101.68$ & $1.64$ \\
+\colrule
+\textbf{Promedio (aire-seca)} & & & $1.61 \pm 0.05$ \\
+\textbf{Promedio (seca horno)\textsuperscript{*}} & & & $\approx 1.58 \pm 0.05$ \\
+\botrule
+\end{tabular}
+\begin{tabnote}
+\textsuperscript{*}Estimado asumiendo humedad residual aire-seca $\sim 2\%$ típica para franco-arenoso; no medida experimentalmente. La corrección previa usando humedad de campo ($H=23.10\%$) era incorrecta porque la muestra ya estaba seca al aire antes de la medición volumétrica (\cref{subsec:densidad}).
+\end{tabnote}
+\end{table}
+
+El valor promedio en base aire-seca ($1.61 \pm 0.05~\text{g/cm}^3$) y su estimación a base seca de horno ($\approx 1.58 \pm 0.05~\text{g/cm}^3$) se encuentran ambos en el rango de suelos moderadamente compactados. Dado que la literatura de referencia (Patterson, 1977) reporta densidad aparente típicamente en base seca de horno, la comparación con el rango óptimo ($1.3$--$1.6~\text{g/cm}^3$) se realiza usando el valor estimado, que se ubica en el extremo superior de ese rango (ver \cref{subsec:limitaciones_generales} sobre el alcance de esta determinación). Este resultado es compatible con condiciones de compactación moderada frecuentemente observadas en áreas verdes urbanas sometidas a uso recreativo intensivo, lo que reduce la porosidad y dificulta la infiltración de agua y la aireación radical. Una densidad aparente elevada puede limitar el crecimiento de las raíces, restringir el intercambio gaseoso y favorecer la acumulación de sales en la superficie al impedir el lavado vertical. Este comportamiento es coherente con el modelo propuesto: la compactación actuaría como un factor de retroalimentación positiva, ya que al reducir la infiltración concentraría las sales y los metabolitos nitrogenados en la capa superficial, intensificando la salinización y la toxicidad para las plantas.
+
+\subsection{Potencial de hidrógeno (pH)}
+
+El pH se midió potenciométricamente en suspensión suelo-agua ($1:2.5$) según la norma ISO 10390 \cite{InternationalOrganizationforStandardization2021}. En la \cref{tab:ph} se presentan los valores obtenidos para las tres réplicas, junto con la temperatura de medición.
+
+\begin{table}[!ht]
+\centering
+\small
+\caption{Resultados de pH y temperatura de medición.}\label{tab:ph}
+\begin{tabular}{@{}lcc@{}}
+\toprule
+\textbf{Réplica} & \textbf{pH} & \textbf{Temperatura} \\
+ & & \textbf{(°C)} \\
+\colrule
+1 & $7.07$ & $22.8$ \\
+2 & $7.12$ & $22.6$ \\
+3 & $7.08$ & $22.8$ \\
+\colrule
+\textbf{Promedio} & $7.09 \pm 0.03$ & $22.73 \pm 0.12$ \\
+\botrule
+\end{tabular}
+\begin{tabnote}
+Nota. Medición realizada el 18 de junio (Laboratorio E-101). Las temperaturas registradas corresponden a esta sesión.
+\end{tabnote}
+\end{table} Este resultado es relevante porque, a pesar de los continuos aportes de urea y ácidos orgánicos provenientes de las excretas felinas, el suelo mantiene su pH dentro del rango óptimo para la mayoría de las plantas ($6.0$--$7.5$) \cite{PortaCasanellas1994}, e incluso dentro del subrango de máxima disponibilidad de nutrientes y actividad microbiana ($6.6$--$7.3$) reportado por la USDA-NRCS \cite{USDANRCS1998}. Este comportamiento se explica por la alta capacidad tampón de los carbonatos y bicarbonatos presentes en los suelos calcáreos de la costa peruana, que neutralizan la acidez generada por la nitrificación. Bajo el modelo conceptual propuesto, el pH neutro es un indicador de que el sistema tampón aún no ha sido sobrepasado. El valor actual se ubica en el extremo inferior del rango reportado por Tello et al. (2018) para el conjunto de parques de Lima Metropolitana ($7.06$--$8.19$), lo que sugiere un suelo comparativamente menos alcalino que el promedio histórico de la zona, sin que ello implique necesariamente un proceso de acidificación, dado que no se cuenta con una medición previa específica del Parque Kennedy para establecer una comparación temporal directa.
+
+\subsection{Conductividad eléctrica (CE)}
+
+La conductividad eléctrica se determinó sobre suspensiones suelo-agua ($1:2.5$) preparadas de manera independiente a las utilizadas para el pH (\cref{subsec:ce_metodologia_prep}), registrando la temperatura de cada suspensión de forma simultánea a la lectura, según la norma NTP-ISO 11265 \cite{INACAL2018}. En la \cref{tab:ce} se presentan los resultados.
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Resultados de conductividad eléctrica (reevaluación con equipo calibrado, 27/06).}\label{tab:ce}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+\textbf{Réplica} & \textbf{CE (mS/cm)} & \textbf{CE ($\mu$S/cm)} & \textbf{T ($^\circ$C)} \\
+\colrule
+1 & $1.90$ & $1900$ & $20.4$ \\
+2 & $2.00$ & $2000$ & $19.9$ \\
+3 & $2.00$ & $2000$ & $20.1$ \\
+\colrule
+\textbf{Promedio} & $\mathbf{1.97 \pm 0.06}$ & $\mathbf{1970 \pm 60}$ & $20.13 \pm 0.25$ \\
+\botrule
+\end{tabular}
+\begin{tabnote}
+Nota. Medición en suspensión suelo-agua 1:2.5 (NTP-ISO 11265) \cite{INACAL2018}, realizada el 27 de junio con equipo previamente calibrado. Una medición anterior (18 de junio) fue descartada por falla de calibración del equipo. Las temperaturas de esta tabla corresponden a la sesión del 27/06, registradas de forma independiente a las de la \cref{tab:ph} (sesión del 18/06); una revisión de la bitácora de laboratorio confirmó que ambas sesiones registraron valores de temperatura distintos, corrigiendo una transcripción errónea de una versión preliminar de este informe en la que ambas tablas mostraban cifras idénticas. Las réplicas se reportan con dos decimales (consistente con la resolución del instrumento); el promedio y la desviación estándar se redondean a dos decimales para no exceder la precisión de los datos de entrada.
+\end{tabnote}
+\end{table}
+
+El valor promedio de $1970 \pm 60~\mu\text{S/cm}$ ($\approx 1.97~\text{mS/cm}$) es elevado respecto a los valores normalmente reportados para un suelo de parque urbano estándar, donde típicamente se registran valores inferiores a $500~\mu\text{S/cm}$ \cite{Allen2020}. Este resultado es consistente con un impacto significativo de la actividad biogénica (felina y de otras fuentes potenciales) sobre la química del suelo. La orina de los felinos aporta grandes cantidades de sales, principalmente cloruros, sulfatos, fosfatos y compuestos nitrogenados como el amonio ($NH_4^+$) y nitratos ($NO_3^-$), que se acumulan en la matriz edáfica al no ser completamente lixiviados. Esta salinización biogénica es compatible con el estrés vegetal reportado por los vecinos del parque. Dentro del modelo conceptual propuesto, la CE es uno de los parámetros más sensibles al desequilibrio iónico inducido por el aporte externo de sales, lo que sugiere que la acumulación iónica en la matriz edáfica podría estar superando la capacidad de dilución y lixiviación natural del sistema.
+
+\subsection{Textura del suelo (análisis granulométrico)}
+
+La \cref{tab:textura} presenta el porcentaje retenido promedio por malla, obtenido del análisis granulométrico por tamizado mecánico de tres réplicas de $100~\text{g}$ c/u (NTP 339.128) \cite{INACAL1999}.
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Distribución granulométrica del suelo del Parque Kennedy.}\label{tab:textura}
+\begin{tabular}{@{}lcc@{}}
+\toprule
+\textbf{Malla} & \textbf{Abertura (mm)} & \textbf{\% Retenido prom.} \\
+\colrule
+N°4   & $4.750$ & $2.54$ \\
+N°10  & $2.000$ & $12.50$ \\
+N°20  & $0.850$ & $18.00$ \\
+N°40  & $0.425$ & $22.10$ \\
+N°60  & $0.250$ & $12.05$ \\
+N°100 & $0.150$ & $6.07$ \\
+N°200 & $0.075$ & $2.49$ \\
+Fondo & ${<}0.075$ & $24.24$ \\
+\colrule
+\textbf{Total} & & $\mathbf{100.00}$ \\
+\botrule
+\end{tabular}
+\begin{tabnote}
+Nota. Fracción arena (retenido N°10--N°200): $\approx 73.2\%$. Fracción finos — limo + arcilla combinados (pasante N°200): $\approx 24.2\%$. Clasificación resultante: \textbf{Franco-Arenoso} (Sandy Loam). Consistente con la textura reportada por Tello et al. (2018) para el conjunto de parques de Lima Metropolitana.
+\end{tabnote}
+\end{table}
+
+La clasificación Franco-Arenosa obtenida es coherente con la geología costera del distrito de Miraflores y coincide con la textura reportada por Tello et al. (2018) para todos los parques analizados en Lima Metropolitana. La alta proporción de arena ($\approx 73\%$) implica una baja capacidad de intercambio catiónico (CIC) esperable \cite{Bilen2025}, lo que hace que el sistema dependa de la materia orgánica como principal fuente de cargas negativas para la retención de nutrientes. Un suelo de textura similar ($72.7\%$ arena, pH $7.84$, CE basal $0.27~\text{dS/m}$) reportado por Bilen et al. (2025) exhibió pérdidas de nutrientes por lixiviación significativamente mayores que suelos arcillosos bajo las mismas condiciones de riego, lo que respalda la vulnerabilidad del suelo del Parque Kennedy frente a la acumulación de sales en capa superficial \cite{Bilen2025}.
+
+\subsection{Materia orgánica (LOI)}\label{subsec:mo}
+
+\subsubsection{Metodología de calcinación}
+
+La masa seca disponible tras el secado a $105^\circ\text{C}$ (24 h) fue de $12.3783~\text{g}$, proveniente de una alícuota húmeda inicial de $16.59~\text{g}$ (Lote 2, remuestreado el 20 de junio). De esta masa se tomó una alícuota para calcinación en mufla a $505^\circ\text{C}$, siguiendo el método de pérdida de masa por ignición (LOI). El procedimiento y los datos de trazabilidad se detallan en la \cref{tab:loi_proceso}.
+
+\textbf{Nota sobre la humedad del Lote 2:} la humedad gravimétrica de la alícuota del Lote 2 ($16.59~\text{g}$ húmedo $\to 12.3783~\text{g}$ seco) es de $\approx 34.0\%$, notablemente superior al $23.10\% \pm 0.39\%$ del Lote 1 (recolectado el 25 de mayo). Esta diferencia se atribuye a la fecha distinta de muestreo (20 de junio vs. 25 de mayo, casi un mes después), posibles eventos de riego recientes y la heterogeneidad espacial del parque. El Lote 2 se obtuvo en el punto central del área de muestreo para garantizar la frescura de la materia orgánica (plazo $\le 14$ días), y su humedad más alta no invalida el ensayo LOI, que opera sobre masa seca a $105^\circ\text{C}$.
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Parámetros y trazabilidad del ensayo LOI.}\label{tab:loi_proceso}
+\begin{tabular}{@{}p{4.0cm}p{3.6cm}@{}}
+\toprule
+\textbf{Parámetro} & \textbf{Valor} \\
+\colrule
+Masa crisol vacío (g) & $92.8871$ \\
+Masa crisol + muestra seca (g) & $99.7343$ \\
+Masa muestra seca analizada, $m_s$ (g) & $6.8472$ \\
+Temperatura de calcinación & $505^\circ\text{C}$ \\
+Tiempo efectivo de calcinación & $\approx 3~\text{h}$ (09:36--12:40) \\
+Enfriamiento & $5$ min ($22^\circ\text{C}$) + $15$ min desecador \\
+Masa crisol + cenizas, post-ignición (g) & $99.4642$ \\
+\botrule
+\end{tabular}
+\begin{tabnote}
+Nota. $m_s = 6.8472~\text{g}$ es una sub-alícuota tomada de la masa seca total del Lote 2 ($12.3783~\text{g}$, \cref{subsec:lote2}), calculada por diferencia entre la masa del crisol con muestra seca y la masa del crisol vacío ($99.7343 - 92.8871$).
+\end{tabnote}
+\end{table}
+
+\subsubsection{Cálculo del porcentaje de materia orgánica}
+
+La masa volatilizada por ignición ($m_{MO}$) se calculó por diferencia entre la masa seca pre-calcinación y la masa de cenizas post-calcinación:
+\begin{equation}
+m_{MO} = 99.7343~\text{g} - 99.4642~\text{g} = 0.2701~\text{g}
+\end{equation}
+
+El porcentaje de materia orgánica se obtuvo como la razón entre la masa volatilizada y la masa seca analizada:
+\begin{equation}
+\%\text{MO} = \left(\frac{m_{MO}}{m_s}\right) \times 100 = \left(\frac{0.2701}{6.8472}\right) \times 100 = 3.94\%
+\end{equation}
+
+Este valor —\textbf{$3.94\%$ de materia orgánica por LOI}— corresponde al resultado experimental del ensayo y se reporta como el dato principal de este parámetro.
+
+\subsubsection{Consideración sobre la temperatura de calcinación y el margen de incertidumbre del método}
+
+El valor de $3.94\%$ se encuentra en el extremo superior del rango reportado por Tello et al. (2018) para el conjunto de parques de Lima Metropolitana ($2\%$--$4\%$) \cite{Tello2018}, lo que es consistente con la hipótesis de un mayor aporte de materia orgánica biogénica en el Parque Kennedy respecto al promedio regional.
+
+No obstante, el método LOI tiene una limitación documentada relevante para este suelo. Hoogsteen et al. (2015) demuestran que, en suelos de naturaleza calcárea o con fracción arcillosa significativa, la calcinación a temperaturas $\geq 500^\circ\text{C}$ provoca pérdida de agua estructural de las arcillas y descomposición parcial de carbonatos ($CaCO_3 \rightarrow CaO + CO_2$), lo que infla artificialmente la pérdida de masa atribuida a materia orgánica \cite{Hoogsteen2015}. Dado que el modelo de reactor biogénico propuesto en este estudio asume explícitamente un suelo calcáreo (fundamento de la capacidad tampón observada en el pH, \cref{sec:resultados}), esta interferencia es plausible para la muestra del Parque Kennedy, aunque no fue cuantificada de forma independiente (por ejemplo, mediante un blanco de carbonato puro calcinado en las mismas condiciones).
+
+De manera complementaria, la literatura documenta que el método químico tradicional (Walkley-Black) recupera, en su versión clásica sin calentamiento externo, aproximadamente $76\%$ del carbono orgánico total, por lo que convencionalmente se aplica un factor de corrección de $1.3$ (equivalente a $+30\%$) para estimar el carbono orgánico total a partir del valor medido \cite{NelsonSommers1982}. Este factor no es un margen de error del método LOI, sino un factor de corrección históricamente asociado a la oxidación incompleta del Walkley-Black; se emplea aquí únicamente como referencia numérica externa para dimensionar, a modo de ejercicio de sensibilidad, la posible sobreestimación del LOI documentada por Hoogsteen et al. (2015), quienes demuestran que la calcinación a temperaturas $\geq 500^\circ\text{C}$ en suelos con fracción arcillosa o carbonatada infla la pérdida de masa atribuida a materia orgánica por la pérdida adicional de agua estructural y la descomposición parcial de carbonatos \cite{Hoogsteen2015}. Combs \& Nathan (1998), por su parte, advierten que la pendiente de regresión entre LOI y Walkley-Black varía significativamente según el tipo de suelo, y recomiendan temperaturas más bajas ($\sim 360^\circ\text{C}$) precisamente para minimizar estas interferencias minerales \cite{Combs1998}; no son ellos quienes reportan el valor de $30\%$, sino que su trabajo respalda la existencia y variabilidad del problema que ese factor busca dimensionar. Aplicando entonces, a modo de sensibilidad --- y no como corrección calibrada --- el factor de $30\%$ inspirado en la literatura de Walkley-Black para aproximar la magnitud de la sobreestimación documentada por Hoogsteen, se obtiene un rango estimado de materia orgánica corregida:
+\begin{align}
+\%\text{MO}_{\text{corr. (división)}} &= \frac{3.94\%}{1.30} = 3.03\% \\
+\%\text{MO}_{\text{corr. (reducción directa)}} &= 3.94\% \times 0.70 = 2.76\%
+\end{align}
+
+Este rango ($2.76\%$--$3.03\%$) es una \textbf{estimación orientativa}, no una corrección calibrada para el suelo específico del Parque Kennedy: el factor de $30\%$ proviene de la literatura estándar sobre el método Walkley-Black \cite{NelsonSommers1982} y se emplea aquí como referencia numérica externa, no como una cuantificación directa de la interferencia de carbonatos en esta muestra particular (que requeriría, por ejemplo, un análisis de calcimetría o un blanco mineral). Por lo tanto, el valor de $3.94\%$ se mantiene como el resultado medido y reportado del estudio, mientras que el rango corregido se presenta únicamente como referencia de la incertidumbre metodológica asociada al protocolo de calcinación a $505^\circ\text{C}$ documentada por Hoogsteen et al. (2015), y no como un valor "verdadero" alternativo.
+
+\subsubsection{Correlación con los demás parámetros del suelo}
+
+El contenido de materia orgánica medido ($3.94\%$) es coherente con el resto del diagnóstico fisicoquímico del suelo del Parque Kennedy. La textura franco-arenosa (\cref{subsec:textura_metodologia}), con su baja capacidad de intercambio catiónico esperable, depende en mayor medida de la materia orgánica como reservorio de cargas negativas \cite{Bilen2025}; un contenido de MO en el extremo superior del rango regional sugiere que el aporte continuo de excretas felinas está parcialmente compensando esta limitación textural. Al mismo tiempo, la elevada conductividad eléctrica ($1970~\mu\text{S/cm}$) es consistente con un entorno de estrés osmótico que, según la literatura, ralentiza la actividad microbiana y la tasa de mineralización de la materia orgánica \cite{Rath2015, Setia2025}, lo que podría explicar la acumulación de MO en el suelo a pesar del aporte continuo de sustrato orgánico fácilmente degradable proveniente de las excretas.
+
+\subsection{Análisis integrado de resultados}
+
+La \cref{tab:resumen_v1} sintetiza los seis parámetros determinados en esta versión del estudio, consolidando los resultados individuales presentados en las subsecciones anteriores como referencia rápida para el lector. Todos los valores corresponden a la matriz de tierra fina ($<2~\text{mm}$) del Lote 1, con excepción de la materia orgánica, determinada sobre el Lote 2 según lo descrito en la metodología.
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Resumen de parámetros fisicoquímicos determinados (Parque Kennedy, 2026).}\label{tab:resumen_v1}
+\begin{tabular}{@{}p{3.6cm}cc@{}}
+\toprule
+\textbf{Parámetro} & \textbf{Prom.} & \textbf{D.E.} \\
+\colrule
+Humedad gravimétrica (\%) & $23.10$ & $\pm 0.39$ \\
+Da, aire-seca (g/cm³) & $1.61$ & $\pm 0.05$ \\
+Da, seca (estim.)\textsuperscript{**} (g/cm³) & $\approx 1.58$ & $\pm 0.05$ \\
+pH & $7.09$ & $\pm 0.03$ \\
+Temperatura (°C)\textsuperscript{***} & $22.73$ & $\pm 0.12$ \\
+CE ($\mu$S/cm) & $1970$ & $\pm 60$ \\
+Textura & \multicolumn{2}{c}{Franco-arenosa} \\
+MO, LOI (\%)\textsuperscript{*} & $3.94$ & -- \\
+\botrule
+\end{tabular}
+\begin{tabnote}
+\textsuperscript{*}Rango orientativo de incertidumbre metodológica: $2.76$--$3.03\%$ (factor de sensibilidad inspirado en Nelson \& Sommers, 1982, aplicado a la sobreestimación documentada por Hoogsteen et al., 2015; ver \cref{subsec:mo}).
+\textsuperscript{**}Estimado asumiendo humedad residual aire-seca $\sim 2\%$ típica para franco-arenoso; no medida experimentalmente. La corrección previa usando humedad de campo ($H=23.10\%$) era incorrecta porque la muestra ya estaba seca al aire antes de la medición volumétrica (\cref{subsec:densidad}).
+\textsuperscript{***}Corresponde a la sesión de pH (18/06, \cref{tab:ph}). La sesión de CE (27/06, \cref{tab:ce}) registró una temperatura independiente de $20.13 \pm 0.25^\circ\text{C}$.
+\end{tabnote}
+\end{table}
+
+Los resultados revelan un escenario de salinización significativa ($CE = 1970~\mu\text{S/cm}$) en un suelo de textura franco-arenosa con pH neutro y humedad adecuada, pero con evidencias de compactación moderada. La combinación de alta salinidad y baja capacidad de retención de nutrientes propia de la textura arenosa sugiere que el sistema edáfico del Parque Kennedy está experimentando un proceso de degradación química y física impulsado por el aporte continuo de excretas felinas, lo que puede afectar su fertilidad y funcionalidad ambiental. La alta CE, en particular, actúa como factor limitante para la absorción de agua y nutrientes por las plantas al inducir estrés osmótico y toxicidad iónica específica (especialmente por $Na^+$, $Cl^-$ y $NH_4^+$ en exceso) \cite{Setia2025}.
+
+\subsection{Comparación con estudios previos}\label{subsec:comparacion_tello}
+
+Para contextualizar los resultados actuales, se comparan con los reportados por Tello et al. (2018) para el Parque Kennedy y otros parques de Lima Metropolitana (\cref{tab:comparativa_tello}). Esta comparación permite evaluar la evolución temporal de las propiedades del suelo.
+
+Al comparar los resultados actuales con los de Tello et al. (2018) para el Parque Kennedy, se observan diferencias notables:
+
+\begin{enumerate}
+  \item \textbf{pH:} El valor actual ($7.09$) se ubica en el extremo inferior del rango reportado por Tello et al. (2018) para el conjunto de parques ($7.06$--$8.19$). Sin una medición previa específica del Parque Kennedy en 2018, no es posible establecer una comparación temporal directa; sin embargo, el sistema tampón carbonato mantiene el pH en rango neutro, consistente con la naturaleza calcárea del suelo costero limeño.
+  
+  \item \textbf{Conductividad eléctrica:} La CE actual ($1970~\mu\text{S/cm} \approx 1.97~\text{dS/m}$), medida en suspensión 1:2.5, es considerablemente mayor que el valor mínimo registrado en 2018 para el Parque Kennedy ($1.01~\text{dS/m}$, medido en extracto de saturación por Tello et al.), lo que indica una tendencia de incremento en la salinización del suelo en los últimos ocho años. Este aumento es consistente con la acumulación de sales derivadas de la orina felina, agravada por la compactación del suelo (que reduce la lixiviación) y la profundidad de la napa freática en Miraflores (mayor a $80~\text{m}$, \cref{sec:marco_teorico}). Cabe señalar, no obstante, que la comparación cuantitativa directa entre ambos valores está limitada por la diferencia metodológica en el protocolo de extracción (ver \cref{subsec:ce_metodologia}).
+
+  \item \textbf{Materia orgánica:} El contenido de MO determinado por LOI ($3.94\%$) se ubica en el extremo superior del rango reportado por Tello et al. (2018) para el conjunto de parques de Lima Metropolitana ($2\%$--$4\%$), lo que es compatible con un mayor aporte biogénico en el Parque Kennedy respecto al promedio regional. Este valor está sujeto a una incertidumbre metodológica conocida del protocolo de calcinación a $505^\circ\text{C}$ en suelos calcáreos (ver \cref{subsec:mo}).
+
+  \item \textbf{Textura:} Ambos estudios coinciden en la clasificación franco-arenosa para los suelos de parques limeños, lo que confirma la coherencia geológica del sitio y la representatividad del muestreo. La alta proporción de arena ($\approx 73\%$) explica la baja capacidad de intercambio catiónico (CIC) esperable y la dependencia del sistema en la materia orgánica como principal reservorio de nutrientes \cite{Bilen2025}.
+
+  \item \textbf{Densidad aparente:} Este parámetro no fue reportado por Tello et al. (2018). El valor en base aire-seca ($1.61~\text{g/cm}^3$, \cref{subsec:densidad}) y su estimación a base seca de horno ($\approx 1.58~\text{g/cm}^3$) se ubican dentro del rango óptimo para suelos urbanos con uso intensivo ($1.3$--$1.6~\text{g/cm}^3$), coherente con la alta afluencia de visitantes al parque \cite{Patterson1977}.
+\end{enumerate}
+
+Estos hallazgos resaltan la necesidad de un monitoreo continuo de la calidad del suelo y la implementación de medidas correctivas (como la aireación, el lavado de sales y el control de la población felina) para frenar la salinización progresiva y restaurar la funcionalidad del ecosistema edáfico.
+
+\section{Aplicaciones de Principios Químicos}\label{sec:aplicaciones}
+
+En esta sección se interpretan los resultados experimentales desde la perspectiva de la termodinámica y la cinética química, estableciendo un puente entre los datos empíricos y los fundamentos teóricos que gobiernan los procesos de transformación del suelo en el Parque Kennedy.
+
+\subsection{Análisis termodinámico: espontaneidad y equilibrio del sistema}
+
+\subsubsection{Hidrólisis de la urea y equilibrio químico}
+
+Una posible fuente de alteración química del suelo del Parque Kennedy es la deposición continua de excretas felinas, cuya composición nitrogenada puede contribuir a la acumulación de especies iónicas en la solución del suelo, cuyo componente mayoritario es la urea ($CO(NH_2)_2$). En contacto con el agua y la enzima ureasa presente en el suelo, la urea experimenta hidrólisis según la siguiente reacción \cite{FertilizarEquipo}:
+
+\begin{equation}
+CO(NH_2)_2 + 2H_2O \xrightarrow{ureasa} 2NH_4^+ + CO_3^{2-}
+\label{eq:hidrolisis_urea}
+\end{equation}
+
+Esta reacción consume protones ($H^+$) del medio, elevando localmente el pH y favoreciendo la formación de amoníaco gaseoso ($NH_3$) a partir del ion amonio:
+
+\begin{equation}
+NH_4^+ + OH^- \rightleftharpoons NH_3 \uparrow + H_2O
+\label{eq:amonio_amoniaco}
+\end{equation}
+
+El ion amonio ($NH_4^+$) generado puede seguir dos vías: ser absorbido por las plantas o microorganismos, o ser oxidado a nitrato ($NO_3^-$) mediante el proceso de nitrificación:
+
+\begin{equation}
+NH_4^+ + 2O_2 \rightarrow NO_3^- + H_2O + 2H^+
+\label{eq:nitrificacion}
+\end{equation}
+
+La liberación de protones ($H^+$) en la nitrificación tiende a acidificar el suelo. Sin embargo, el pH medido ($7.09$) se mantiene en un rango neutro, lo que evidencia la presencia de un sistema tampón eficiente. En los suelos calcáreos de la costa peruana, los carbonatos ($CO_3^{2-}$) y bicarbonatos ($HCO_3^-$) actúan como amortiguadores:
+
+\begin{equation}
+CO_3^{2-} + H^+ \rightleftharpoons HCO_3^-
+\label{eq:tampon_carbonato}
+\end{equation}
+
+Este equilibrio mantiene el pH estable siempre que la capacidad tampón no sea sobrepasada. La constancia del pH en $7.09$ sugiere que, a pesar del aporte continuo de ácidos, el sistema tampón carbonato sigue siendo efectivo. El olor amoniacal detectado en campo (puntos PK-01, PK-02, PK-06, PK-07, PK-09, PK-15, PK-16, PK-17, PK-19) es consistente con la ocurrencia de la reacción representada en la \cref{eq:amonio_amoniaco}, lo que sugiere que la hidrólisis de la urea está activa en el suelo. La magnitud real de esta pérdida de nitrógeno como $NH_3$ gaseoso, sin embargo, depende directamente del pH del sistema, como se cuantifica a continuación.
+
+\subsubsection{Equilibrio ácido-base amonio/amoníaco: fundamento termodinámico y especiación real}
+
+El ion amonio es un ácido débil cuya disociación está gobernada por el siguiente equilibrio químico:
+\begin{equation}
+NH_4^+ \rightleftharpoons NH_3 + H^+
+\label{eq:ka_amonio}
+\end{equation}
+
+Este equilibrio queda completamente definido por su constante de disociación ácida, $K_a$, expresada como el cociente entre las concentraciones (o actividades) de productos y reactivo en el equilibrio:
+\begin{equation}
+K_a = \frac{[NH_3][H^+]}{[NH_4^+]} = 5.6 \times 10^{-10}~(\text{p}K_a = 9.25~\text{a}~25^\circ\text{C})
+\label{eq:ka_expresion}
+\end{equation}
+
+Este valor de $K_a$ es una propiedad intrínseca de la reacción (\cref{eq:ka_amonio}), determinada experimentalmente en la literatura y válida para cualquier sistema acuoso donde ese equilibrio se establezca, independientemente de las condiciones particulares del suelo del Parque Kennedy.
+
+La relación entre la energía libre estándar y la constante de equilibrio permite conectar directamente la literatura termoquímica con los datos experimentales del estudio:
+\begin{equation}
+\Delta G^\circ = -RT \ln K_a
+\label{eq:gibbs_nh4}
+\end{equation}
+Sustituyendo $R=8.314~\text{J/mol·K}$, $T=298.15~\text{K}$ y $K_a=5.6\times10^{-10}$, se obtiene $\Delta G^\circ \approx 52.8~\text{kJ/mol}$ para la disociación del ion amonio en condiciones estándar. Ese valor no proviene de una medición directa del suelo, sino de la literatura, y sirve para mostrar que la formación de $NH_3$ libre no es favorecida en condiciones estándar; por eso, el pH real medido ($7.09$) y la temperatura real del sistema son los datos que permiten interpretar la especiación efectiva.
+
+\paragraph{Posición real del equilibrio en el suelo estudiado.} La pregunta relevante para este estudio no es si la reacción es espontánea en condiciones estándar, sino \textit{en qué proporción} el nitrógeno amoniacal del suelo del Parque Kennedy se encuentra como $NH_4^+$ o como $NH_3$ en las condiciones reales medidas. Esto se responde reordenando la \cref{eq:ka_expresion}:
+\begin{equation}
+\frac{[NH_3]}{[NH_4^+]} = \frac{K_a}{[H^+]}
+\label{eq:razon_especies}
+\end{equation}
+
+El punto clave es que el pH es, por definición, una medición directa de $[H^+]$ ($\text{pH} = -\log[H^+]$) --- es decir, el pH medido experimentalmente en cada réplica (\cref{tab:ph}) corresponde exactamente a uno de los tres términos de la \cref{eq:ka_expresion}. No se trata de una aproximación de $K_a$ por medio del pH, sino de sustituir en la expresión del equilibrio un término ($[H^+]$) que sí fue medido, para despejar el cociente de las especies nitrogenadas, que no fue medido directamente. Tomando logaritmo en base 10 a ambos lados de la \cref{eq:razon_especies}:
+\begin{equation}
+\text{pH} = \text{p}K_a + \log\left(\frac{[NH_3]}{[NH_4^+]}\right)
+\label{eq:henderson_hasselbalch}
+\end{equation}
+que es la ecuación de Henderson--Hasselbalch, obtenida aquí directamente de la constante de equilibrio (\cref{eq:ka_expresion}) y no como una fórmula externa impuesta. Esta ecuación permite calcular la especiación real del nitrógeno amoniacal a partir de dos cantidades conocidas: el $\text{p}K_a$ de referencia (dato de literatura) y el pH medido experimentalmente (dato propio de este estudio), sin requerir la medición directa de las concentraciones absolutas de $NH_3$ o $NH_4^+$.
+
+Debido a que el pH medido fue cercano a la neutralidad, el equilibrio permanece desplazado hacia la especie protonada ($NH_4^+$), consistente con el valor de pKa del sistema.
+
+La \cref{tab:especiacion_nh3} presenta la fracción de nitrógeno amoniacal presente como $NH_3$ (volátil) frente a $NH_4^+$ (soluble, no volátil) en cada réplica, calculada mediante la \cref{eq:henderson_hasselbalch} a partir del pH real medido.
+
+\begin{table}[!ht]
+\centering
+\small
+\caption{Especiación amonio/amoníaco a partir del pH medido (\cref{eq:henderson_hasselbalch}, $\text{p}K_a=9.25$).}\label{tab:especiacion_nh3}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+\textbf{Réplica} & \textbf{pH} & \textbf{\% $NH_3$} & \textbf{\% $NH_4^+$} \\
+\colrule
+1 & $7.07$ & $0.66$ & $99.34$ \\
+2 & $7.12$ & $0.74$ & $99.26$ \\
+3 & $7.08$ & $0.67$ & $99.33$ \\
+\colrule
+\textbf{Promedio} & $7.09$ & $0.69$ & $99.31$ \\
+\botrule
+\end{tabular}
+\begin{tabnote}
+Nota. Valores recalculados con precisión completa a partir de la \cref{eq:henderson_hasselbalch} ($\text{p}K_a=9.25$); una versión preliminar de esta tabla presentaba una discrepancia de redondeo de $\pm 0.01$ puntos porcentuales en las réplicas 1 y 2, corregida en esta versión.
+\end{tabnote}
+\end{table}
+
+Este resultado es químicamente revelador: al pH neutro del suelo del Parque Kennedy, más del $99\%$ del nitrógeno amoniacal generado por la hidrólisis de la urea permanece en solución como ion $NH_4^+$, y solo una fracción marginal ($<1\%$) se encuentra en la forma volátil $NH_3$. Esto tiene dos implicancias directas para la interpretación de los resultados de este estudio:
+
+\begin{enumerate}
+  \item La mayor parte del nitrógeno amoniacal permanece disuelto como $NH_4^+$, un ion que contribuye directamente a la conductividad eléctrica medida ($1970~\mu\text{S/cm}$). La especiación calculada es, por lo tanto, consistente con la elevada CE observada: el sistema retiene el nitrógeno en solución en lugar de perderlo mayoritariamente a la atmósfera.
+  \item El olor amoniacal detectado en puntos específicos de muestreo, pese a que la especiación promedio del suelo favorece abrumadoramente al $NH_4^+$, sugiere la existencia de microambientes de pH localmente más elevado en los focos activos de hidrólisis (\cref{eq:amonio_amoniaco}), donde la producción puntual de $NH_3$ sería proporcionalmente mayor que en el promedio del suelo. Esta observación de campo es, por tanto, compatible con una hidrólisis activa y heterogénea espacialmente, sin que ello implique que la totalidad del suelo se encuentre en ese estado.
+\end{enumerate}
+
+\subsubsection{Alcance y limitaciones del análisis termodinámico}\label{subsubsec:limitaciones_termo}
+
+Es importante precisar el alcance de este análisis. El valor de $\Delta G^\circ \approx 52.8~\text{kJ/mol}$ corresponde específicamente al equilibrio de disociación ácida del ion amonio (\cref{eq:ka_amonio}), una reacción bien definida con datos termodinámicos de referencia disponibles en la literatura. Este estudio no determinó experimentalmente la entalpía ($\Delta H$) ni la entropía ($\Delta S$) de reacción para el sistema específico del suelo del Parque Kennedy, ya que ello requeriría medición calorimétrica directa, no realizada en este trabajo.
+
+No obstante, es posible complementar el análisis de espontaneidad con una interpretación entálpica del mismo equilibrio, recurriendo a determinaciones calorimétricas independientes reportadas en la literatura. Olofsson (1975) determinó, mediante calorimetría de disolución en un amplio intervalo de temperatura ($278$--$418~\text{K}$), la siguiente correlación empírica para la entalpía de disociación del ion amonio \cite{Olofsson1975}:
+\begin{equation}
+\Delta H^\circ_{(NH_4^+)}~[\text{kJ/mol}] = 48.49 + 0.0114\,T~[\text{K}]
+\label{eq:dh_olofsson}
+\end{equation}
+Evaluando esta expresión a $T = 298.15~\text{K}$ (condiciones estándar, consistentes con el $\Delta G^\circ$ calculado previamente) se obtiene $\Delta H^\circ \approx 51.9~\text{kJ/mol}$. Combinando este valor de literatura con el $\Delta G^\circ$ ya calculado, mediante la ecuación de Gibbs, se puede despejar la entropía estándar de la reacción:
+\begin{equation}
+\Delta S^\circ = \frac{\Delta H^\circ - \Delta G^\circ}{T}
+\label{eq:ds_derivado}
+\end{equation}
+Sustituyendo $\Delta H^\circ = 51.9~\text{kJ/mol}$, $\Delta G^\circ = 52.8~\text{kJ/mol}$ y $T=298.15~\text{K}$, se obtiene $\Delta S^\circ \approx -3.1~\text{J/(mol·K)}$.
+
+Estos valores son coherentes con la naturaleza química de la reacción: al tratarse de un proceso isoeléctrico (un catión que pierde un protón para formar una especie neutra y otro catión, sin generar carga neta adicional en el sistema), la reorganización del agua de solvatación es comparativamente pequeña, por lo que $\Delta S^\circ$ es cercano a cero y de signo ligeramente negativo, a diferencia de la disociación de ácidos neutros (como el ácido acético), donde la generación de nuevas especies cargadas suele producir valores de $\Delta S^\circ$ marcadamente más negativos. El hecho de que $\Delta H^\circ$ y $\Delta G^\circ$ sean de magnitud similar, con $T\Delta S^\circ$ pequeño en comparación, indica que la falta de espontaneidad de la reacción en condiciones estándar es de origen predominantemente entálpico: se requiere energía para romper el enlace $N$--$H$ y liberar el protón, y este costo energético no es compensado por una ganancia entrópica significativa. Es este carácter endotérmico el que explica, a nivel molecular, por qué la fracción de $NH_3$ gaseoso aumenta con la temperatura (\cref{tab:especiacion_nh3}): un aumento de $T$ favorece termodinámicamente los procesos endotérmicos, incluyendo tanto la disociación del amonio como la posterior volatilización de $NH_3$ desde la fase acuosa hacia la atmósfera, lo cual es consistente con la intensificación de los olores amoniacales reportada en campo durante los meses de mayor temperatura.
+
+Es importante notar que $\Delta H^\circ$ y $\Delta S^\circ$ (\cref{eq:dh_olofsson,eq:ds_derivado}) provienen de una correlación de literatura y no de una medición calorimétrica propia sobre el suelo del Parque Kennedy; su validez está limitada al equilibrio $NH_4^+/NH_3$ en solución acuosa diluida, y no se extrapolan al conjunto de reacciones de disolución de otras sales presentes en la matriz edáfica. La literatura reporta además valores calorimétricos de la hidrólisis enzimática de la urea que varían considerablemente según el sistema y las condiciones experimentales (entre $\Delta H \approx -44$ y $+42~\text{kJ/mol}$, según la fuente de ureasa y el buffer empleado), lo que ilustra por qué no es apropiado asumir un valor específico de $\Delta H$ para esa reacción particular sin datos calorimétricos propios \cite{Jiang2018}. Por esta razón, este informe reporta valores cuantitativos de $\Delta H^\circ$ y $\Delta S^\circ$ únicamente para el equilibrio amonio/amoníaco, respaldado por una fuente calorimétrica primaria citable, y no para la hidrólisis de la urea ni para el conjunto de sales responsables de la CE, para las cuales no existe una base de literatura igualmente específica y aplicable.
+
+En términos estrictos, lo que sí puede defenderse con los datos y la literatura empleados en este trabajo es: (1) la ecuación general de Gibbs, (2) la relación $\Delta G^\circ = -RT\ln K_a$, (3) los valores de $\Delta H^\circ$ y $\Delta S^\circ$ del equilibrio amonio/amoníaco, obtenidos de una fuente calorimétrica de referencia, (4) la especiación amonio/amoníaco calculada a partir del pH medido, y (5) la interpretación de que el carácter endotérmico de la disociación favorece la formación de $NH_3$ y su volatilización a mayor temperatura. Lo que no puede defenderse con este conjunto de datos es un valor experimental propio de $\Delta H$ o $\Delta S$ para el suelo como sistema completo (incluyendo la disolución de sales inorgánicas y la hidrólisis de la urea); cualquier cifra en ese sentido tendría que provenir de una medición calorimétrica adicional no realizada en este estudio.
+
+Asimismo, este estudio no calculó una constante de equilibrio ni una energía libre de disolución para las sales responsables de la elevada CE en su conjunto, dado que ello requeriría conocer la identidad y concentración específica de cada especie iónica disuelta (mediante, por ejemplo, cromatografía iónica), información no generada en este trabajo. La CE se interpreta en este informe como un indicador robusto y validado en la literatura de la carga iónica total del sistema (\cref{subsec:ce_metodologia}), sin atribuírsele un valor termodinámico específico no sustentado por los datos disponibles.
+
+\subsection{Análisis cinético: velocidad de reacción y factores que la afectan}
+
+\subsubsection{Cinética de mineralización de la materia orgánica}
+
+La materia orgánica del suelo se descompone mediante reacciones enzimáticas y microbianas que, de manera general, siguen una cinética de primer orden, donde la velocidad de degradación es proporcional a la concentración de sustrato:
+
+\begin{equation}
+v = k [C_{org}]
+\label{eq:cinetica_orden1_repite}
+\end{equation}
+
+donde $k$ es la constante de velocidad, que depende de la temperatura según la ecuación de Arrhenius:
+
+\begin{equation}
+k = A e^{-E_a / (RT)}
+\label{eq:arrhenius_repite}
+\end{equation}
+
+La ecuación se presenta únicamente como fundamento teórico del efecto de la temperatura sobre la velocidad de degradación de la materia orgánica; este estudio no determinó experimentalmente parámetros cinéticos como $k$ o la energía de activación.
+
+Este estudio no determinó experimentalmente el valor de $k$, $A$ ni $E_a$ para el suelo del Parque Kennedy, ya que ello requeriría un ensayo cinético con mediciones de mineralización en función del tiempo (no realizado en este trabajo). Por ello, las ecuaciones anteriores se presentan como marco conceptual para interpretar cualitativamente los resultados, y no se reporta un valor numérico estimado de $k$. La velocidad de mineralización está influenciada por múltiples factores, cuyos efectos cualitativos se discuten a continuación en relación con las condiciones medidas en el Parque Kennedy.
+
+\subsubsection{Efecto de la temperatura}
+
+Las temperaturas registradas durante las sesiones de laboratorio ($22.73^\circ\text{C}$ en la sesión de pH del 18/06; $20.13^\circ\text{C}$ en la sesión de CE del 27/06) son, ambas, favorables para la actividad microbiana. En verano, cuando las temperaturas superan los $25^\circ\text{C}$, es esperable una aceleración cualitativa en la mineralización de la materia orgánica, lo que incrementaría la producción de $NH_3$ y $CO_2$. En invierno, la velocidad tendería a disminuir, favoreciendo la acumulación de materia orgánica parcialmente degradada.
+
+\subsubsection{Efecto de la humedad}
+
+La humedad gravimétrica ($23.10\%$) se encuentra dentro del rango generalmente reportado como óptimo para la actividad microbiana ($20\%$--$30\%$). No obstante, la elevada salinidad del suelo ($CE = 1970~\mu\text{S/cm}$) reduce la disponibilidad efectiva de esa agua para los microorganismos mediante estrés osmótico: en la literatura, niveles de conductividad eléctrica en este rango se asocian con una reducción medible de la actividad microbiana y de la tasa de mineralización de materia orgánica, debido a la menor disponibilidad de agua celular y a posibles efectos de lisis \cite{Rath2015, Setia2025}. Este estudio no realizó una determinación experimental propia de la presión osmótica de la solución del suelo (que requeriría conocer la molaridad y composición iónica real, no medida en este trabajo), por lo que el efecto se discute de forma cualitativa, con respaldo en los umbrales reportados en la literatura, sin asignar un valor numérico no verificable a este parámetro.
+
+\subsubsection{Efecto del pH}
+
+El pH neutro ($7.09$) es favorable para la mayoría de los microorganismos del suelo, ya que la actividad enzimática es generalmente máxima en este rango. La capacidad tampón de los carbonatos mantiene el pH estable, lo que evita fluctuaciones bruscas que podrían inhibir la actividad microbiana. Como se cuantificó en la \cref{tab:especiacion_nh3}, a este pH la especiación amonio/amoníaco favorece abrumadoramente al ion $NH_4^+$ sobre el $NH_3$ gaseoso, lo que es consistente con la retención de nitrógeno en solución (reflejada en la CE) más que con una pérdida masiva hacia la atmósfera.
+
+\subsubsection{Efecto de la salinidad}
+
+La salinidad es el factor limitante más relevante identificado en el Parque Kennedy. La CE de $1970~\mu\text{S/cm}$ supera el umbral de tolerancia reportado en la literatura para la mayoría de plantas ornamentales sensibles ($> 1000~\mu\text{S/cm}$) y se aproxima al umbral asociado con toxicidad para la actividad de microorganismos del suelo ($> 2000~\mu\text{S/cm}$) \cite{Allen2020}. Los mecanismos documentados en la literatura por los cuales la salinidad limita la mineralización incluyen:
+
+\begin{enumerate}
+  \item Incremento del estrés osmótico, reduciendo la disponibilidad efectiva de agua.
+  \item Posible toxicidad iónica específica (ej. $Na^+$, $Cl^-$) sobre la microbiota.
+  \item Alteración de la estructura de enzimas y membranas celulares.
+\end{enumerate}
+
+Estos mecanismos, documentados en la literatura, son consistentes con una posible reducción de la velocidad de mineralización de la materia orgánica en el suelo estudiado, lo que podría explicar la acumulación de compuestos orgánicos parcialmente degradados asociados a los olores desagradables reportados por los vecinos (ácidos grasos volátiles, aminas, sulfuros). En verano, un aumento de temperatura intensificaría la volatilización de estos compuestos, agravando el problema.
+
+\subsection{Integración termodinámico-cinética del sistema}
+
+El suelo del Parque Kennedy puede conceptualizarse como un sistema abierto sostenido por un aporte externo continuo de materia (excretas felinas). El equilibrio ácido-base amonio/amoníaco analizado (\cref{tab:especiacion_nh3}) muestra que, al pH medido, el sistema retiene el nitrógeno amoniacal mayoritariamente en forma iónica soluble ($NH_4^+$), lo que es consistente con la acumulación de carga iónica reflejada en la CE, en lugar de una pérdida dominante hacia la atmósfera como $NH_3$. La \cref{tab:termodinamica_cinetica} resume los parámetros termodinámicos con fundamento verificable obtenidos en este análisis.
+
+\begin{table}[!ht]
+\centering
+\small
+\caption{Resumen de parámetros termodinámicos del equilibrio amonio/amoníaco.}\label{tab:termodinamica_cinetica}
+\begin{tabular}{@{}p{5.2cm}c@{}}
+\toprule
+\textbf{Parámetro} & \textbf{Valor} \\
+\colrule
+Temperatura de la sesión de pH ($T$) & $295.88~\text{K}$ ($22.73^\circ\text{C}$) \\
+p$K_a$ ($NH_4^+/NH_3$, referencia est.) & $9.25$ \\
+$\Delta G^\circ$ (298.15 K) & $52.8~\text{kJ/mol}$ \\
+$\Delta H^\circ$ (298.15 K)\textsuperscript{*} & $51.9~\text{kJ/mol}$ \\
+$\Delta S^\circ$ (298.15 K)\textsuperscript{*} & $-3.1~\text{J/(mol·K)}$ \\
+Fracción promedio de $NH_3$ a pH real & $0.69\%$ \\
+Fracción promedio de $NH_4^+$ a pH real & $99.31\%$ \\
+\botrule
+\end{tabular}
+\begin{tabnote}
+Nota. $\Delta G^\circ$ corresponde al estado estándar de la reacción (\cref{eq:ka_amonio}), no a la posición real del equilibrio en el suelo, la cual se determina mediante el pH medido (\cref{eq:henderson_hasselbalch}). \textsuperscript{*}$\Delta H^\circ$ proviene de la correlación calorimétrica de Olofsson (1975) \cite{Olofsson1975} (\cref{eq:dh_olofsson}); $\Delta S^\circ$ se deriva algebraicamente combinando ese $\Delta H^\circ$ de literatura con el $\Delta G^\circ$ calculado en este trabajo (\cref{eq:ds_derivado}). Ninguno de los dos fue medido calorimétricamente sobre el suelo del Parque Kennedy. No se reportan constante de velocidad ($k$) ni presión osmótica al no contar con datos experimentales propios que las sustenten (ver \cref{subsubsec:limitaciones_termo}). \textbf{La temperatura $T=22.73^\circ\text{C}$ corresponde a la sesión de pH (18/06, \cref{tab:ph}), de la cual provienen los valores de pH usados en la especiación de la \cref{tab:especiacion_nh3}; no a la de campo ($19^\circ\text{C}$, 25/05), ni a la del remuestreo ($22^\circ\text{C}$, 20/06), ni a la de la sesión de CE (27/06, \cref{tab:ce}), registrada de forma independiente en $20.13 \pm 0.25^\circ\text{C}$.}
+\end{tabnote}
+\end{table}
+
+Las implicancias de este análisis son las siguientes:
+
+\begin{enumerate}
+  \item A pesar de que la disociación de $NH_4^+$ a $NH_3$ no es espontánea en condiciones estándar ($\Delta G^\circ = 52.8~\text{kJ/mol} > 0$), la hidrólisis continua de urea (\cref{eq:hidrolisis_urea}) genera un aporte constante de $NH_4^+$ que se acumula en solución, elevando la CE de forma sostenida mientras el aporte externo continúe.
+  \item La especiación calculada a partir del pH real confirma que el sistema retiene el nitrógeno predominantemente en forma iónica ($NH_4^+$, $>99\%$), lo que es consistente con la elevada CE observada y con una pérdida atmosférica de nitrógeno (como $NH_3$) proporcionalmente menor a nivel de suelo promedio.
+  \item El pH se mantiene estable gracias al sistema tampón carbonato, pero la elevada CE sugiere que la capacidad de retención iónica del suelo está siendo sometida a una carga sostenida.
+  \item La profundidad de la napa freática en Miraflores (reportada en la literatura hidrogeológica local como superior a $80~\text{m}$) limitaría la lixiviación natural de sales hacia capas profundas, lo que podría agravar la acumulación superficial observada.
+\end{enumerate}
+
+Estos resultados fundamentan la necesidad de implementar medidas correctivas que reduzcan el aporte de sales (control de la población felina, limpieza de excretas) y mejoren la capacidad de drenaje y lavado del suelo, para restaurar su equilibrio químico y funcionalidad ambiental.
+
+\section{Discusión}\label{sec:discusion}
+
+La caracterización fisicoquímica del suelo del Parque Kennedy revela un sistema edáfico profundamente alterado por la actividad biogénica felina, cuyos efectos se manifiestan en la salinización, la compactación y la modificación del equilibrio químico. En esta sección se integran los resultados experimentales con el contexto ambiental, los antecedentes bibliográficos y los principios termodinámicos y cinéticos discutidos previamente, con el fin de establecer relaciones causales entre los parámetros medidos y los problemas de fertilidad reportados, así como evaluar el posible efecto de fertilizantes y compost en la dinámica del suelo.
+
+\subsection{Salinización como factor crítico de estrés vegetal y pérdida de fertilidad}
+
+El parámetro más relevante es la conductividad eléctrica ($CE = 1970 \pm 60~\mu\text{S/cm}$), que supera los umbrales de tolerancia para la mayoría de las especies vegetales ornamentales (típicamente $< 1000~\mu\text{S/cm}$) y es elevado respecto a los valores normales reportados para un suelo de parque urbano estándar \cite{Allen2020}. Esta salinización es consistente con la huella química esperada de la orina felina, rica en urea, cloruros, sulfatos y fosfatos, aunque no se descartan otras fuentes contribuyentes (fertilizantes, agua de riego, escorrentía vial) que no fueron caracterizadas de forma independiente en este estudio. La hidrólisis de la urea (Ecuación~\ref{eq:hidrolisis_urea}) genera amonio ($NH_4^+$) y bicarbonato ($CO_3^{2-}$), que al ser oxidados a nitrato ($NO_3^-$) liberan protones (Ecuación~\ref{eq:nitrificacion}), contribuyendo a la acumulación de sales y a una ligera acidificación. Sin embargo, el pH se mantiene en $7.09$ gracias al sistema tampón carbonato (Ecuación~\ref{eq:tampon_carbonato}), característico de los suelos calcáreos de la costa peruana \cite{Taalab2019}.
+
+El valor de $CE = 1970~\mu\text{S/cm}$ es considerablemente mayor que el reportado por Tello et al. (2018) para el mismo parque ($1.01~\text{dS/m} \approx 1010~\mu\text{S/cm}$), lo que indica una tendencia de incremento en la salinización en los últimos ocho años, aunque la comparación numérica directa está acotada por la diferencia metodológica entre el protocolo de suspensión 1:2.5 empleado aquí y el extracto de saturación utilizado por Tello et al. (ver \cref{subsec:ce_metodologia}) \cite{Kargas2024}. Este aumento es consistente con el continuo aporte de excretas y la falta de lixiviación efectiva, agravada por la compactación del suelo ($\rho_b = 1.61~\text{g/cm}^3$) y la profundidad de la napa freática ($> 80~\text{m}$), que impide el lavado natural de sales hacia capas profundas.
+
+La alta salinidad induce estrés osmótico en las plantas, dificultando la absorción de agua y nutrientes esenciales (como $K^+$, $Ca^{2+}$ y $Mg^{2+}$) debido a la competencia iónica con $Na^+$ y $Cl^-$. Además, el exceso de $NH_4^+$ puede ser tóxico para las raíces y alterar el balance hormonal de las plantas. Estos efectos son consistentes con el estrés vegetal reportado por los vecinos del parque, especialmente durante el verano, cuando la evapotranspiración aumenta y la concentración de sales en la solución del suelo se eleva aún más, aunque este estudio no incluyó una evaluación directa del estado fisiológico de la vegetación.
+
+\subsection{Impacto de la compactación en la dinámica de nutrientes y gases}
+
+La densidad aparente ($1.61~\text{g/cm}^3$ en base aire-seca; estimación a base seca de horno $\approx 1.58~\text{g/cm}^3$, \cref{subsec:densidad}) indica una compactación moderada, típica de suelos urbanos sometidos a tránsito peatonal intenso. Este valor reduce la macroporosidad y limita la difusión de oxígeno, lo que afecta negativamente a la respiración radical y a la actividad microbiana aeróbica. En condiciones de baja oxigenación, los procesos de desnitrificación pueden activarse, convirtiendo los nitratos ($NO_3^-$) en gases de efecto invernadero como $N_2O$, y favoreciendo la producción de compuestos reducidos como sulfuros ($H_2S$) y aminas. Además, la compactación dificulta el drenaje, prolongando la permanencia de la humedad en la superficie y favoreciendo la volatilización de $NH_3$ (Ecuación~\ref{eq:amonio_amoniaco}), cuyo olor característico fue detectado en nueve de los veinte puntos de muestreo.
+
+La humedad gravimétrica promedio ($23.10\%$) es adecuada para la actividad microbiana, pero la alta salinidad reduce la disponibilidad de agua para los microorganismos debido al efecto osmótico, como se discutió en la \cref{sec:aplicaciones}. Esta interacción entre humedad y salinidad explica por qué, a pesar de las condiciones aparentemente favorables, la mineralización de la materia orgánica puede ser más lenta de lo esperado, favoreciendo la acumulación de compuestos orgánicos parcialmente degradados que generan olores desagradables.
+
+\subsection{Comparación con otros parques y evolución temporal}
+
+La comparación con la línea base histórica sugiere una tendencia de salinización acelerada en el Parque Kennedy. Si bien la CE actual ($1.97~\text{dS/m}$) se ubica dentro del rango general observado por Tello et al. \cite{Tello2018} para el conjunto de parques limeños ($1.01$--$5.13~\text{dS/m}$), el hecho de que el Parque Kennedy haya pasado de ser el de menor CE del conjunto a situarse en la parte media de ese rango es consistente con la hipótesis del reactor biogénico. Esta tendencia, sin embargo, debe interpretarse con cautela debido a las diferencias metodológicas en la medición de CE ya discutidas en la \cref{subsec:ce_metodologia}. La textura franco-arenosa, coincidente con la reportada en estudios previos, refuerza la dependencia del sistema en la materia orgánica como reservorio de cationes, lo que hace que el contenido de MO medido ($3.94\%$) sea un factor crítico para mantener la fertilidad a pesar de la elevada salinidad.
+
+Respecto al pH (\cref{sec:resultados}), la principal implicación de su estabilidad actual es prospectiva más que descriptiva: si el aporte continuo de nitrógeno biogénico llegara a sobrepasar la capacidad tampón del carbonato de calcio, el pH podría descender a rangos que afecten la disponibilidad de nutrientes como el fósforo (que se fija a pH ácido) y el calcio (que se lixivia), comprometiendo aún más la fertilidad del suelo. La capacidad tampón del carbonato de calcio ($CaCO_3$) es finita; una vez agotada, el pH descendería con mayor rapidez, con consecuencias potencialmente severas para la vegetación y la microbiota. En ese sentido, la neutralidad actual no debe interpretarse como garantía de estabilidad a largo plazo, sino como el resultado de un balance activo que depende de que el aporte de ácidos no supere la capacidad de neutralización del sistema.
+
+\subsection{Efecto de fertilizantes y compost: ¿aliados o enemigos?}
+
+Se ha reportado que la Municipalidad de Miraflores aplica compost y fertilizantes nitrogenados en las jardineras del parque, lo que podría estar contribuyendo, en mayor o menor grado, a la dinámica de salinidad observada; \textbf{esta información no fue verificada de forma independiente en el presente estudio (por ejemplo, mediante solicitud documental a la Gerencia de Servicios a la Ciudad y Gestión Ambiental de la Municipalidad de Miraflores) y se presenta aquí como un antecedente contextual a confirmar}, no como un hallazgo propio. Los fertilizantes nitrogenados, como la urea y los nitratos, aumentan la disponibilidad de nitrógeno, pero también pueden favorecer la acumulación de sales y la acidificación por nitrificación. En un suelo ya salinizado, cualquier aporte adicional de sales puede elevar aún más la CE y acercar el sistema al umbral de tolerancia de las plantas.
+
+El compost, por su parte, puede ser beneficioso si está bien maduro, ya que mejora la estructura del suelo, aumenta la retención de humedad y aporta materia orgánica estable. Sin embargo, un compost mal procesado o aplicado en exceso podría introducir sales adicionales, especialmente si contiene residuos con alto contenido de sodio. Además, el compost fresco puede estimular la actividad microbiana y aumentar la producción de $NH_3$, lo que podría agravar los problemas de olor \cite{Jiang2018}. El olor amoniacal detectado en campo es compatible con la hidrólisis de la urea y la volatilización de $NH_3$, aunque con los datos disponibles no es posible atribuir de manera cuantitativa esa señal al compost, a las excretas felinas o a una combinación de ambas fuentes.
+
+Por lo tanto, las aplicaciones de fertilizantes y compost en el parque deberían ser cuidadosamente dosificadas y monitoreadas, considerando la alta CE de fondo. En particular, convendría priorizar fertilizantes de liberación lenta o enmiendas orgánicas estabilizadas, y verificar previamente la carga salina de cualquier insumo antes de su aplicación.
+
+\subsection{Implicaciones para la gestión del suelo}
+
+Los resultados evidencian que el Parque Kennedy se encuentra en un estado de alteración química y física, impulsada por el aporte continuo de excretas felinas y agravada por la compactación y la falta de drenaje. La alta CE es un indicador temprano de una pérdida de fertilidad que, de no ser controlada, podría hacer inviable la vegetación actual y requerir inversiones costosas en remediación; el pH, aunque actualmente estable, podría verse comprometido si la capacidad tampón del suelo llegara a ser sobrepasada por el aporte continuo de nitrógeno biogénico.
+
+Las medidas correctivas deben abordar tanto la fuente del problema (control de la población felina, limpieza frecuente de excretas) como sus consecuencias (lavado de sales, aireación del suelo, aplicación controlada de enmiendas). El monitoreo continuo de pH, CE y materia orgánica es esencial para evaluar la efectividad de las intervenciones y ajustar las estrategias de manejo según la estación del año, ya que la temperatura y la humedad influyen en la velocidad de los procesos biogeoquímicos.
+
+La textura franco-arenosa del suelo condiciona su baja capacidad de retención de nutrientes y hace que el sistema dependa en mayor medida de la materia orgánica como reservorio de intercambio iónico. El contenido de materia orgánica medido ($3.94\%$, en el extremo superior del rango regional reportado en estudios previos) sugiere que el aporte continuo de excretas felinas está compensando parcialmente esta limitación textural, aunque la elevada salinidad podría estar limitando su tasa de mineralización efectiva. La integración de todos estos datos en el modelo de reactor biogénico urbano ayudará a diseñar estrategias de manejo adaptativo que garanticen la sostenibilidad ambiental del parque a largo plazo.
+
+\section{Conclusiones}\label{sec:conclusiones}
+
+La caracterización fisicoquímica del suelo del Parque Kennedy ha permitido establecer un diagnóstico integral del estado actual del sistema edáfico, identificar los principales factores de degradación y proponer recomendaciones técnicas diferenciadas por temporada, orientadas a restaurar la fertilidad y funcionalidad ambiental del parque.
+
+\subsection{Síntesis de hallazgos}
+
+A partir de los resultados obtenidos, se concluye lo siguiente:
+
+\begin{enumerate}
+  \item La conductividad eléctrica ($CE = 1970 \pm 60~\mu\text{S/cm}$), determinada con equipo calibrado en suspensión 1:2.5, es anómalamente elevada para un suelo de parque urbano estándar ($< 500~\mu\text{S/cm}$), y supera los umbrales de tolerancia para la mayoría de las especies vegetales ornamentales. Este valor es aproximadamente $1.95$ veces mayor que el registrado para el Parque Kennedy en 2018 ($1.01~\text{dS/m} = 1010~\mu\text{S/cm}$, en extracto de saturación) \cite{Tello2018}, lo que es consistente con una tendencia de salinización acelerada asociada al aporte sostenido de sales, probablemente vinculado a la orina felina y posiblemente a otras fuentes urbanas; sin embargo, dado que ambos valores se midieron con protocolos distintos (extracto de saturación vs. suspensión 1:2.5), este factor debe interpretarse como una referencia indicativa de la magnitud del cambio, no como una cifra exacta de evolución temporal (ver \cref{subsec:ce_metodologia}).
+
+  \item El pH se mantiene en un rango neutro ($7.09 \pm 0.03$), a pesar de los continuos aportes de urea y ácidos orgánicos, gracias a la alta capacidad tampón de los carbonatos presentes en el suelo calcáreo \cite{Taalab2019}. Este valor se ubica dentro del rango reportado por Tello et al. (2018) para el conjunto de parques de Lima Metropolitana ($7.06$--$8.19$), en su extremo inferior; sin una medición previa específica del Parque Kennedy en 2018, no es posible establecer una tendencia temporal de acidificación, aunque el sistema tampón podría verse progresivamente comprometido si el aporte de nitrógeno biogénico continúa sin medidas correctivas.
+
+  \item La textura franco-arenosa ($\approx 73\%$ arena, $\approx 24\%$ finos) explica la baja capacidad de intercambio catiónico esperable y la tendencia a la lixiviación de nutrientes, haciendo que la materia orgánica sea el principal reservorio de cargas negativas del sistema \cite{Bilen2025}.
+
+  \item El contenido de materia orgánica determinado por LOI ($3.94\%$) se ubica en el extremo superior del rango reportado por Tello et al. (2018) para el conjunto de parques de Lima Metropolitana ($2\%$--$4\%$), consistente con un mayor aporte biogénico en el Parque Kennedy. Este valor está sujeto a una incertidumbre metodológica conocida, asociada a la calcinación a $505^\circ\text{C}$ en suelos de naturaleza calcárea \cite{Hoogsteen2015}; aplicando como referencia externa el factor de corrección estándar de la literatura de Walkley-Black \cite{NelsonSommers1982}, se estima un rango orientativo de $2.76\%$--$3.03\%$, sin que ello implique una corrección calibrada específicamente para esta muestra.
+
+  \item La densidad aparente en base aire-seca ($1.61 \pm 0.05~\text{g/cm}^3$; estimación a base seca de horno $\approx 1.58 \pm 0.05~\text{g/cm}^3$) indica compactación moderada dentro del rango óptimo para suelos urbanos \cite{Patterson1977}, lo que reduce la porosidad, limita la infiltración y favorece la acumulación de sales en la capa superficial.
+
+  \item La humedad gravimétrica ($23.10\% \pm 0.39\%$) es adecuada para la actividad microbiana, pero su disponibilidad real para las plantas se ve limitada por la alta salinidad, que induce estrés osmótico y dificulta la absorción de agua \cite{Rath2015}.
+
+  \item Las temperaturas registradas en las sesiones de laboratorio ($22.73 \pm 0.12~^\circ\text{C}$ en la sesión de pH del 18/06; $20.13 \pm 0.25~^\circ\text{C}$ en la sesión de CE del 27/06) sitúan al sistema en un rango compatible con actividad microbiana sostenida y explican, en conjunto con la humedad, por qué la volatilización de $NH_3$ y la mineralización de la materia orgánica se intensifican en condiciones más cálidas.
+
+  \item El análisis del equilibrio ácido-base amonio/amoníaco, fundamentado en la constante de disociación estándar del ion amonio ($\text{p}K_a=9.25$) y en el pH medido experimentalmente, muestra que más del $99\%$ del nitrógeno amoniacal generado por la hidrólisis de la urea permanece en el suelo como ion $NH_4^+$ soluble, consistente con la elevada CE observada, y solo una fracción marginal ($<1\%$) se encuentra como $NH_3$ volátil en condiciones promedio del suelo.
+
+  \item La combinación del $\Delta G^\circ$ calculado en este trabajo con el $\Delta H^\circ$ reportado en la literatura calorimétrica para el mismo equilibrio \cite{Olofsson1975} indica que la falta de espontaneidad de la disociación del amonio es de origen predominantemente entálpico ($\Delta H^\circ \approx 51.9~\text{kJ/mol}$, $\Delta S^\circ \approx -3.1~\text{J/(mol·K)}$), lo que explica por qué un aumento de temperatura favorece termodinámicamente tanto la disociación como la posterior volatilización de $NH_3$, siendo consistente con la mayor intensidad de olores amoniacales reportada en los meses cálidos.
+
+  \item La comparación con los rangos reportados por Tello et al. (2018) para seis parques de Lima Metropolitana muestra que el valor actual de CE en el Parque Kennedy es mayor que el mínimo reportado para el conjunto ($1.01~\text{dS/m}$), lo que es compatible con una salinización más marcada en 2026; sin embargo, la diferencia metodológica entre ambos estudios obliga a interpretar esta comparación solo como una tendencia indicativa, no como una evolución temporal exacta.
+\end{enumerate}
+
+\subsection{Diagnóstico integrado}
+
+El suelo del Parque Kennedy se encuentra en un estado de degradación química y física progresiva, caracterizado por una salinización crítica y compactación moderada; el pH se mantiene neutro gracias al sistema tampón carbonato, aunque este podría verse comprometido si el aporte de nitrógeno biogénico continúa sin medidas correctivas. Estos factores interactúan sinérgicamente: la compactación reduce la lixiviación de sales, la alta CE induce estrés osmótico en las plantas y la microbiota, y un eventual agotamiento de la capacidad tampón podría afectar la disponibilidad de nutrientes esenciales. El sistema se comporta como un reactor biogénico en estado estacionario no equilibrado, donde el aporte continuo de excretas felinas supera la capacidad de autorregulación del suelo, comprometiendo su fertilidad y funcionalidad ambiental.
+
+\subsection{Recomendaciones técnicas por temporada}
+
+Basado en los hallazgos, se proponen las siguientes recomendaciones diferenciadas para cada estación del año, considerando las variaciones de temperatura, precipitación y actividad biológica:
+
+\subsubsection{Verano (diciembre -- marzo)}
+
+Durante esta temporada, las altas temperaturas incrementan la evaporación y la concentración de sales en la solución del suelo, agravando el estrés hídrico y osmótico de las plantas. La volatilización de $NH_3$ se intensifica, empeorando los problemas de olor.
+
+\begin{itemize}
+  \item \textbf{Riego profundo:} Aplicar riegos de lavado con agua de baja salinidad para lixiviar sales por debajo de la zona radical. Se recomienda un riego prolongado al menos dos veces por semana, en horas de menor radiación (amanecer o atardecer).
+  \item \textbf{Monitoreo intensivo de CE:} Medir la conductividad eléctrica cada $15$ días para detectar incrementos críticos y ajustar el riego.
+  \item \textbf{Evitar fertilización nitrogenada:} Suspender la aplicación de fertilizantes con alto contenido de nitrógeno, ya que la mineralización de la materia orgánica ya libera suficiente $NH_4^+$ y $NO_3^-$ que contribuyen a la salinidad.
+  \item \textbf{Aplicación de enmiendas orgánicas estabilizadas:} Incorporar compost maduro (bien descompuesto) en la capa superficial para mejorar la retención de humedad y la estructura del suelo, evitando compost fresco que pueda incrementar la actividad microbiana y la volatilización de $NH_3$.
+\end{itemize}
+
+\subsubsection{Otoño (marzo -- junio)}
+
+Las temperaturas comienzan a descender y las lluvias (si se presentan) pueden ayudar a la lixiviación natural de sales. Es una época de transición favorable para intervenciones correctivas.
+
+\begin{itemize}
+  \item \textbf{Aprovechamiento de lluvias:} Programar riegos de lavado complementarios después de eventos de lluvia para maximizar la lixiviación de sales.
+  \item \textbf{Aireación del suelo:} Realizar perforaciones o escarificado mecánico para reducir la compactación, mejorar la infiltración y facilitar el intercambio gaseoso. Esto es especialmente importante en áreas de alto tránsito.
+  \item \textbf{Aplicación de compost maduro:} Incorporar $2$--$3$ cm de compost bien descompuesto en la superficie, mezclado con la capa superior de suelo, para mejorar la capacidad de intercambio catiónico y la retención de nutrientes.
+\end{itemize}
+
+\subsubsection{Invierno (junio -- septiembre)}
+
+Las temperaturas más bajas reducen la velocidad de mineralización de la materia orgánica y la volatilización de $NH_3$, lo que hace de esta época la más adecuada para intervenciones que requieren tiempo para actuar.
+
+\begin{itemize}
+  \item \textbf{Aplicación de yeso agrícola (CaSO$_4\cdot 2$H$_2$O):} El yeso mejora la estructura del suelo, facilita el intercambio de $Ca^{2+}$ con $Na^+$ en el complejo de intercambio, y favorece la lixiviación del sodio. Como referencia general de la práctica agronómica (no calibrada específicamente para este suelo), se sugiere una dosis orientativa de $200$--$300$ g/m², seguido de riego ligero, sujeta a validación mediante un análisis de sodio intercambiable previo.
+  \item \textbf{Limpieza intensiva de excretas:} Establecer un programa de limpieza diaria para reducir el aporte de urea y sales. Esta es la temporada con menor afluencia de visitantes, lo que facilita las labores de mantenimiento.
+  \item \textbf{Monitoreo de pH y CE:} Realizar mediciones mensuales para evaluar el efecto de las enmiendas y ajustar las dosis.
+  \item \textbf{Control de la población felina:} Implementar campañas de esterilización y alimentación controlada para reducir la densidad de felinos y, por ende, el aporte de excretas.
+\end{itemize}
+
+\subsubsection{Primavera (septiembre -- diciembre)}
+
+La temporada de crecimiento vegetal y preparación para el verano requiere un enfoque preventivo y de fortalecimiento de la vegetación existente.
+
+\begin{itemize}
+  \item \textbf{Monitoreo preventivo:} Realizar un análisis completo de suelo (pH, CE, nutrientes) al inicio de la primavera para ajustar las estrategias de fertilización y enmienda.
+  \item \textbf{Fertilización controlada:} Aplicar fertilizantes de liberación lenta o de bajo índice salino (ej. fosfatos naturales, sulfato de potasio) en dosis reducidas, fraccionadas en el tiempo.
+  \item \textbf{Selección de especies tolerantes a sales:} En las zonas más afectadas, considerar la siembra de especies vegetales resistentes a la salinidad (ej. gramíneas halófitas, plantas suculentas) que puedan establecerse en condiciones de CE alta.
+  \item \textbf{Preparación para el verano:} Asegurar un sistema de riego eficiente y programado, y aplicar una capa de mulch orgánico para reducir la evaporación superficial.
+\end{itemize}
+
+\subsection{Recomendaciones generales}
+
+Además de las medidas estacionales, se recomienda:
+
+\begin{itemize}
+  \item \textbf{Monitoreo continuo:} Establecer un programa de monitoreo mensual de pH y CE en puntos fijos, y semestral de materia orgánica y textura, para evaluar la efectividad de las intervenciones y detectar tendencias tempranas.
+  \item \textbf{Gestión integral de la población felina:} Coordinar con asociaciones protectoras de animales para implementar un programa de control poblacional (captura, esterilización y adopción) que reduzca la carga de excretas en el parque.
+  \item \textbf{Sensibilización y educación ambiental:} Informar a los vecinos y visitantes sobre la importancia de no alimentar a los felinos en el parque, y de reportar excretas para su limpieza oportuna.
+  \item \textbf{Evitar la aplicación de fertilizantes nitrogenados en exceso:} Dado el elevado nivel de conductividad eléctrica observado, se recomienda evitar aplicaciones excesivas de fertilizantes nitrogenados hasta disponer de una caracterización química más completa del suelo.
+  \item \textbf{Mejorar el drenaje:} En zonas con alta compactación, instalar drenes subterráneos o zanjas de infiltración para facilitar la lixiviación de sales hacia capas profundas.
+  \item \textbf{Evaluación de metales pesados y plaguicidas:} Una evaluación posterior podría incluir el análisis de metales pesados (Pb, Cd, As) y plaguicidas (cumarinas), dado el contexto de intoxicación de fauna reportado en 2023.
+\end{itemize}
+
+\subsection{Limitaciones del estudio y perspectivas futuras}\label{subsec:limitaciones_generales}
+
+El presente estudio comprende la determinación de seis parámetros fisicoquímicos (humedad, densidad aparente, pH, CE, textura y materia orgánica) en una muestra compuesta y una muestra de frescura del Parque Kennedy. El valor de materia orgánica reportado ($3.94\%$ por LOI) está sujeto a la incertidumbre conocida del método a temperaturas $\geq 500^\circ\text{C}$ en suelos calcáreos (ver \cref{subsec:mo}); una cuantificación más precisa requeriría un método de referencia independiente, como la titulación de Walkley-Black o un análisis de calcimetría para aislar la contribución de los carbonatos. Cabe señalar que la calibración de la mufla utilizada en este ensayo (certificado METROTEC N.° MT-LTT-067-2025, vigencia de 16 meses desde el 5 de marzo de 2025) se mantuvo vigente hasta el 5 de julio de 2026, por lo que el ensayo LOI del 30 de junio de 2026 se ejecutó dentro del período de vigencia, aunque con un margen ajustado de solo 5 días (\cref{subsec:equipos_laboratorio}). La densidad aparente ($1.61~\text{g/cm}^3$ en base aire-seca, estimación $\approx 1.58~\text{g/cm}^3$ a base seca de horno) se determinó sobre material disturbado (tierra fina aire-seca) vertido y ligeramente compactado en probeta, y no sobre un núcleo de suelo intacto extraído del terreno; por lo tanto, debe interpretarse como una estimación de la densidad de empaquetamiento del material recolectado, y no como una medición directa de la compactación \textit{in situ} del suelo del parque. Una determinación más rigurosa de la compactación real requeriría el método de núcleo (core method) u otro procedimiento que preserve la estructura natural del suelo. Adicionalmente, la comparación cuantitativa de CE con Tello et al. (2018) está limitada por la diferencia de protocolos entre ambos estudios (ver \cref{subsec:ce_metodologia}). Asimismo, tal como se detalla en la \cref{subsec:diseno_muestreo}, la ejecución real del muestreo correspondió a un recorrido perimetral en torno al API y no a la rejilla interna regular diseñada originalmente en gabinete, lo que concentra los 20 incrementos en el borde de la superficie delimitada y podría subrepresentar la variabilidad del suelo en el interior del área de estudio. Se recomienda extender el estudio a otras áreas del parque y a diferentes profundidades, así como incorporar análisis microbiológicos para evaluar la actividad de la ureasa y la comunidad microbiana, claves en el ciclo del nitrógeno y la dinámica de la salinidad \cite{McGuire2019}.
+
+Adicionalmente, deben señalarse tres limitaciones de alcance no discutidas en las secciones anteriores. \textbf{Primero}, el estudio no incluyó un sitio de referencia o control (por ejemplo, una zona del mismo parque con baja afluencia felina, u otro espacio verde cercano de características edáficas similares) muestreado bajo el mismo protocolo y en las mismas fechas; sin ese punto de comparación interno, la atribución de las condiciones observadas (particularmente la elevada CE) a la actividad felina frente a otras fuentes urbanas potenciales (riego, escorrentía vial, fertilización municipal) permanece como una asociación plausible, no como una relación causal demostrada, tal como ya se reconoce en las Secs. 6.1 y 6.4. \textbf{Segundo}, dado que las determinaciones fisicoquímicas provienen de una única muestra compuesta y una única muestra de frescura, los resultados y sus estadísticos descriptivos (promedio $\pm$ desviación estándar de las réplicas analíticas, \crefrange{tab:humedad}{tab:especiacion_nh3}) reflejan la variabilidad instrumental entre réplicas de un mismo punto o composición, no la variabilidad espacial del suelo dentro del parque; extender las conclusiones a la totalidad del ``suelo del Parque Kennedy'' debe entenderse como una generalización razonable pero no verificada estadísticamente. \textbf{Tercero}, en consecuencia, este informe reporta únicamente estadística descriptiva (promedio y desviación estándar de $n=3$ réplicas por ensayo) y no incluye pruebas de hipótesis, análisis de varianza (ANOVA) ni intervalos de confianza que permitan cuantificar la significancia estadística de las diferencias observadas frente a la literatura de referencia (por ejemplo, frente a los rangos de Tello et al., 2018, \cref{tab:comparativa_tello}); las comparaciones presentadas en este informe (\cref{subsec:comparacion_tello,sec:conclusiones}) deben leerse, por tanto, como contrastes descriptivos de magnitud y no como diferencias estadísticamente validadas. Abordar estas tres limitaciones —mediante un diseño con sitios control replicados, un muestreo espacialmente distribuido con múltiples muestras compuestas independientes, y análisis estadístico inferencial— constituye el paso más importante para elevar este estudio exploratorio al estándar de evidencia causal requerido en la literatura de ecología urbana.
+
+En conclusión, los resultados de este estudio sugieren que el suelo del Parque Kennedy se encuentra en un estado de salinización biogénica significativa que amerita atención y medidas de manejo. La implementación de un plan de manejo adaptativo, basado en el monitoreo continuo y en recomendaciones estacionales, podría contribuir a frenar la degradación y a restaurar la funcionalidad ecológica del parque, favoreciendo su sostenibilidad ambiental y su valor como espacio público de esparcimiento para la comunidad de Miraflores.
+
+\bibliography{jaes.bib}
+\bibliographystyle{ieeetr}
+
+\appendix
+
+\subsection{Apéndice A: Bitácora de experimentación}
+\label{sec:apendiceA}
+
+La trazabilidad metodológica es un pilar fundamental en cualquier estudio experimental, pues garantiza la reproducibilidad de los resultados y permite identificar posibles desviaciones en el procedimiento. Por ello, se ha mantenido un registro cronológico detallado de todas las operaciones ejecutadas durante el desarrollo del estudio, desde la primera salida a campo hasta los ensayos de laboratorio.
+
+En la \cref{tab:bitacora_experimentacion} se consolidan las actividades más relevantes, agrupadas por fecha, con una descripción de la tarea realizada y las observaciones técnicas que puedan afectar la interpretación de los datos. La bitácora incluye las condiciones ambientales, los protocolos normativos seguidos y cualquier incidencia ocurrida durante el proceso.
+
+Cabe destacar que la medición de conductividad eléctrica del 18 de junio fue descartada por falla de calibración del equipo, y fue reevaluada exitosamente el 27 de junio con equipo calibrado. El análisis granulométrico (textura) fue ejecutado el 23 de junio. La materia orgánica (LOI) se determinó el 30 de junio mediante calcinación en mufla, obteniéndose un valor de $3.94\%$ (\cref{subsec:mo}).
+
+\begin{table*}[!htb]
+\centering
+\small
+\caption{Bitácora cronológica de experimentación: actividades de campo y laboratorio.}\label{tab:bitacora_experimentacion}
+\begin{tabular}{@{}p{1.9cm}p{3.9cm}p{10.6cm}@{}}
+\toprule
+\textbf{Fecha} & \textbf{Actividad} & \textbf{Observaciones} \\
+\colrule
+25/05/2026 &
+Muestreo en campo (Lote 1) &
+Se ejecutaron 20 incrementos dentro de un Área Potencialmente Impactada (API) nominal de $10 \times 10$~m (rango real medido: $14.20 \times 13.29$~m, correspondiente a un recorrido perimetral y no a una rejilla interna, ver \cref{subsec:diseno_muestreo}), con temperatura ambiental de $19^{\circ}\text{C}$. Se registraron coordenadas UTM, color Munsell y olor. \\
+09/06/2026 &
+Pretratamiento y tamizado &
+Cuarteo de la muestra compuesta según NTP 339.089 \cite{INACAL2014}; separación previa de las alícuotas de humedad ($90~\text{g}$) y textura ($300~\text{g}$, sin tamizar); tamizado del remanente de $610~\text{g}$ para obtener la fracción $<2$~mm según NTP 339.090 \cite{INACAL2021} (\cref{tab:balance_masas_v1}). Se eliminaron raíces y gravas $>2$~mm ($\approx 100~\text{g}$). \\
+18/06/2026 &
+Ensayos de laboratorio &
+Determinación de densidad aparente (ASTM D7263) \cite{ASTMInternational2009}, pH (ISO 10390) \cite{InternationalOrganizationforStandardization2021} y conductividad eléctrica (NTP-ISO 11265) \cite{INACAL2018}, todas por triplicado ($n=3$) empleando sensores Vernier conectados a interfaz LabQuest. Las mediciones se realizaron a temperatura ambiente controlada. \\
+20/06/2026 &
+Muestreo complementario (Lote 2) &
+Extracción de una muestra virgen de suelo para análisis de materia orgánica (MO). Se realizó un corte en "V" hasta 10 cm de profundidad en el punto central del área de muestreo (UTM 279010.96 E, 8659169.56 N). Condiciones: 22°C, HR $75\%$, viento 14 km/h. La muestra fue almacenada en tubo tipo Falcon de 50 mL. \\
+23/06/2026 &
+Ensayo de laboratorio &
+Análisis granulométrico (textura) del Lote 1 según NTP 339.128 \cite{INACAL1999}: tamizado mecánico en seco con serie de ocho tamices (N°4, N°10, N°20, N°40, N°60, N°100, N°200 y fondo) sobre agitador W.S. Tyler RX-812-3. Se procesaron $300~\text{g}$ de muestra seca en tres réplicas de $100~\text{g}$ cada una. \\
+26/06/2026 &
+Pretratamiento Lote 2 (secado) &
+Ingreso a estufa ECOCELL de la alícuota húmeda de $16.59~\text{g}$ del Lote 2, a $105^{\circ}\text{C}$, para determinación de masa seca previa al ensayo LOI \cite{INACAL2019}. \\
+27/06/2026 &
+Retiro Lote 2 y reevaluación de CE &
+Retiro de la alícuota del Lote 2 tras $24$ horas a $105^{\circ}\text{C}$, con una masa seca resultante de $12.3783~\text{g}$. De forma independiente, en el Laboratorio E-101 se reevaluó la conductividad eléctrica del Lote 1 con el sensor Vernier Conductivity correctamente calibrado (patrones $1413~\mu\text{S/cm}$ y $12.88~\text{mS/cm}$), obteniéndose los valores definitivos reportados en la \cref{tab:ce}, tras la invalidación de la lectura del 18/06 por falla de calibración (RSD $18.5\%$). \\
+30/06/2026 &
+Calcinación LOI (materia orgánica) &
+Calcinación de la alícuota seca del Lote 2 en mufla Protherm Furnaces a $505^{\circ}\text{C}$ durante un tiempo efectivo de $3$ horas (09:36--12:40), con enfriamiento posterior en desecador con sílica gel. Masa volatilizada: $0.2701~\text{g}$ sobre una masa seca analizada de $6.8472~\text{g}$, resultando en $3.94\%$ de materia orgánica (\cref{subsec:mo}). \\
+\botrule
+\end{tabular}
+\end{table*}
+
+\textit{Nota:} La muestra del Lote 2 (masa seca: $12.3783~\text{g}$ tras secado a $105^\circ\text{C}$ el 27/06) fue calcinada en mufla a $505^\circ\text{C}$ el 30 de junio (protocolo LOI), obteniéndose un contenido de materia orgánica de $3.94\%$, reportado y discutido en la \cref{subsec:mo}.
+
+\subsection{Apéndice B: Fichas técnicas de equipos}
+\label{sec:apendiceB}
+
+La confiabilidad de los resultados analíticos depende en gran medida de la calidad y calibración de los instrumentos utilizados. Por esta razón, se presenta un inventario detallado de los equipos empleados en los ensayos de laboratorio, especificando para cada uno su rango de medición, precisión declarada y las condiciones de calibración previas a su uso.
+
+Todos los instrumentos listados en la \cref{tab:fichas_equipos} fueron calibrados por el laboratorio siguiendo protocolos internos certificados, garantizando la trazabilidad metrológica de las mediciones. En particular, el tamiz N.° 10 (abertura 2.00 mm) fue sometido a un control de verificación dimensional según la norma ASTM E11, y su estado de calibración se encuentra registrado en los archivos del laboratorio de suelos.
+
+La balanza analítica fue ajustada con pesas patrón certificadas por el fabricante; los sensores Vernier (pH y conductividad) se calibraron con soluciones buffer y patrón de conductividad de referencia trazable al NIST. La estufa de secado y la mufla cuentan con termocuplas verificadas periódicamente.
+
+\begin{table*}[!htb]
+\centering
+\small
+\caption{Fichas técnicas de los instrumentos y equipos utilizados en los ensayos de laboratorio.}\label{tab:fichas_equipos}
+\begin{tabular}{@{}p{4.0cm}p{4.1cm}p{4.1cm}p{4.0cm}@{}}
+\toprule
+\textbf{Instrumento} & \textbf{Marca / Modelo} & \textbf{Rango de medición} & \textbf{Precisión} \\
+\colrule
+Estufa de secado &
+ECOCELL (Horno Ecocell) &
+[No especificado por el fabricante en la ficha disponible] &
+-- \\
+Balanza analítica &
+OHAUS Pioneer &
+[No especificado por el fabricante en la ficha disponible] &
+$\pm 0.0001$~g (4 decimales) \\
+Sensor de pH Vernier &
+Vernier PH-BTA &
+$0$--$14$ pH &
+$\pm 0.2$ pH \\
+Sensor de conductividad Vernier &
+Vernier CON-BTA &
+$0$--$20\,000~\mu\text{S/cm}$ &
+$\pm 1\%$ de la lectura \\
+Interfaz de adquisición &
+Vernier LabQuest 2 &
+-- &
+-- \\
+Software de adquisición &
+Vernier Graphical Analysis $4$ &
+-- &
+-- \\
+Probeta graduada &
+Pyrex, $100$~mL &
+$0$--$100$~mL &
+$\pm 1$~mL \\
+Agitador de tamices &
+W.S. Tyler RX-812-3 (2016) &
+-- &
+-- \\
+Tamiz N.\textsuperscript{o} 10 &
+W.S. Tyler / FORNEY / ELE International (abertura $2.00$~mm) &
+Abertura nominal $2.00$~mm &
+Según ASTM E-11 \\
+Mufla (horno de calcinación) &
+Protherm Furnaces &
+Uso documentado en este estudio: $505^\circ\text{C}$ &
+Certificado de calibración METROTEC N.° MT-LTT-067-2025 (05/03/2025) \\
+\botrule
+\end{tabular}
+\end{table*}
+
+Todas las calibraciones de los instrumentos listados en la \cref{tab:fichas_equipos} fueron realizadas previamente por el laboratorio y no por el operador. La mufla Protherm Furnaces cuenta con certificado de calibración vigente emitido por METROTEC (N.° MT-LTT-067-2025, calibrado el 5 de marzo de 2025) y un informe de mantenimiento asociado (N.° IM-HP-071-2025, servicio del 6 de marzo de 2025); el equipo conserva además una etiqueta de una calibración histórica previa (26 de mayo de 2022), lo que evidencia un historial de trazabilidad metrológica continuo. \textbf{El certificado tiene una vigencia declarada de 16 meses desde la fecha de calibración, es decir, hasta el 5 de julio de 2026. El ensayo LOI de este estudio se realizó el 30 de junio de 2026, dentro del período de vigencia, aunque con un margen ajustado de apenas 5 días respecto al vencimiento.} Los tamices de la columna granulométrica poseen etiquetas de verificación metrológica vigentes (fechas registradas: 15 de marzo de 2025 y 15 de febrero de 2024); en particular, el tamiz N.\textsuperscript{o} 10 fue verificado dimensionalmente según la norma ASTM E-11, confirmando su abertura nominal de $2.00~\text{mm}$ mediante micrómetro digital y patrones de esferas certificadas.
+
+\subsection{Apéndice C: Panel fotográfico}
+\label{sec:apendiceC}
+
+La documentación gráfica y cartográfica constituye un soporte esencial para la comprensión espacial del estudio. En este apéndice se presentan las capas georreferenciadas, los planos de localización y el entorno de trabajo en AutoCAD que se utilizaron durante la fase de planificación y ejecución del muestreo. Estas imágenes permiten visualizar la ubicación exacta del Parque Kennedy, sus vías de acceso, la infraestructura subterránea y la distribución de los puntos de muestreo.
+
+La \cref{fig:apc_capa_georreferenciada} muestra la superposición de capas vectoriales en coordenadas UTM WGS84 Zona 18 Sur, que sirvió de base para el diseño del área de muestreo. Las \cref{fig:apc_macrolocalizacion,fig:apc_microlocalizacion} ubican el distrito de Miraflores y el perímetro exacto del parque. El \cref{fig:apc_plano_vial} detalla las principales vías de acceso, mientras que la \cref{fig:apc_punto_muestreo} señala el punto central georreferenciado (279010.96 E, 8659169.56 N) donde se tomó la muestra complementaria para MO. Finalmente, la \cref{fig:apc_capa_cad} presenta el plano CAD con redes de riego, senderos e infraestructura enterrada, información que ayuda a correlacionar posibles interferencias antrópicas con los resultados fisicoquímicos.
+
+\renewcommand{\thefigure}{C.\arabic{figure}}
+\renewcommand{\theHfigure}{apc.\arabic{figure}}
+\setcounter{figure}{0}
+
+% Ajusta la posición de las figuras con [t] para que aparezcan lo antes posible
+\begin{figure*}[!t]
+\centering
+\includegraphics[width=\textwidth]{Capa Georreferenciada.pdf}
+\caption{Capa georreferenciada del área de estudio. Superposición de capas vectoriales georreferenciadas en sistema de coordenadas UTM WGS84 Zona 18 Sur.}
+\label{fig:apc_capa_georreferenciada}
+\end{figure*}
+
+\begin{figure*}[!t]
+\centering
+\includegraphics[width=\textwidth]{Macrolocalización.pdf}
+\caption{Macrolocalización del área de estudio. Ubicación del distrito de Miraflores dentro del contexto metropolitano de Lima Metropolitana.}
+\label{fig:apc_macrolocalizacion}
+\end{figure*}
+
+\begin{figure*}[!t]
+\centering
+\includegraphics[width=\textwidth]{Microlocalización.pdf}
+\caption{Microlocalización del área de estudio. Perímetro del Parque Kennedy ($8\,975.75~\text{m}^2$) y colindancias inmediatas. \textit{Nota: este valor se adopta como área de referencia oficial del parque en el presente informe. La captura satelital de la \cref{fig:microlocalizacion} muestra una medición en pantalla de $9\,207.69~\text{m}^2$, obtenida con una herramienta de medición aproximada distinta a la usada para delimitar el polígono de esta figura; la diferencia ($\approx 232~\text{m}^2$) se atribuye a esa distinción metodológica y no afecta la delimitación del Área Potencialmente Impactada (API) utilizada para el muestreo.}}
+\label{fig:apc_microlocalizacion}
+\end{figure*}
+
+\begin{figure*}[!t]
+\centering
+\includegraphics[width=\textwidth]{Plano vial de Carreteras.pdf}
+\caption{Plano vial circundante al área de estudio. Vías de acceso principales: Av. José Larco, Av. Diagonal y Calle Schell.}
+\label{fig:apc_plano_vial}
+\end{figure*}
+
+\begin{figure*}[!t]
+\centering
+\includegraphics[width=\textwidth]{Punto de muestreo.pdf}
+\caption{Punto de muestreo. Georreferencia del punto central de muestreo (279010.96 E, 8659169.56 N).}
+\label{fig:apc_punto_muestreo}
+\end{figure*}
+
+\begin{figure*}[!t]
+\centering
+\includegraphics[width=\textwidth]{Capa Cartográfica (AutoCAD).pdf}
+\caption{Capa cartográfica en entorno CAD. Plano digitalizado con redes de riego, senderos e infraestructura subterránea del área de estudio.}
+\label{fig:apc_capa_cad}
+\end{figure*}
+
+\renewcommand{\thefigure}{\@arabic\c@figure}
+\renewcommand{\theHfigure}{\theHchapter.\arabic{figure}}
+
+% ------------------------------------------------------------------
+% ESPACIO RESERVADO PARA EL USUARIO.
+% Inserte aquí sus propias fotografías de campo (bitácora fotográfica),
+% siguiendo el mismo patrón de figure* usado en el Apéndice C.
+% Ejemplo de plantilla a copiar:
+%
+% \begin{figure*}[!ht]
+% \centering
+% \includegraphics[width=\textwidth]{NombreDeSuImagen.pdf}
+% \caption{Descripción de la fotografía.}
+% \label{fig:apd_01}
+% \end{figure*}
+%
+% Si necesita varias imágenes en una sola figura combinada (grid),
+% considere envolverlas en un \begin{minipage} dentro del mismo
+% figure*, o use el paquete subcaption si lo agrega al preámbulo.
+% ------------------------------------------------------------------
+
+\end{document}

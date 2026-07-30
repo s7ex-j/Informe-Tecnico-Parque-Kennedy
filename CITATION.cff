@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+authors:
+- family-names: Vilca Ramos
+  given-names: Jharol André
+  orcid: "https://orcid.org/0009-0009-7897-3439"
+  affiliation: "Universidad Privada del Norte, Facultad de Ingeniería Industrial, Lima, Perú"
+title: "Informe Técnico: Caracterización Fisicoquímica de Suelos Urbanos del Parque Kennedy"
+version: 1.0.0
+date-released: 2026-06-30
+doi: ""
+url: "https://github.com/JharolVilca/parque-kennedy-informe-tecnico"
+preferred-citation:
+  type: article
+  authors:
+  - family-names: Vilca Ramos
+    given-names: Jharol André
+    orcid: "https://orcid.org/0009-0009-7897-3439"
+    affiliation: "Universidad Privada del Norte, Facultad de Ingeniería Industrial, Lima, Perú"
+  title: "Informe Técnico: Caracterización Fisicoquímica de Suelos Urbanos del Parque Kennedy"
+  journal: "Informe Técnico"
+  year: 2026
+  month: 6
+  doi: ""
+keywords:
+- suelo urbano
+- caracterización fisicoquímica
+- salinización edáfica
+- Parque Kennedy
+- materia orgánica
+- conductividad eléctrica
+license: MIT

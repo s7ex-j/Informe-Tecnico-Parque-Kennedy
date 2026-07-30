@@ -7,8 +7,8 @@ authors:
   affiliation: "Universidad Privada del Norte, Facultad de Ingeniería Industrial, Lima, Perú"
 title: "Informe Técnico: Caracterización Fisicoquímica de Suelos Urbanos del Parque Kennedy"
 version: 1.0.0
-doi: ""
-url: "https://github.com/JharolVilca/parque-kennedy-informe-tecnico"
+doi: "10.5281/zenodo.21695656"
+url: "https://github.com/s7ex-j/Informe-Tecnico-Parque-Kennedy"
 preferred-citation:
   type: article
   authors:
@@ -20,7 +20,7 @@ preferred-citation:
   journal: "Informe Técnico"
   year: 2026
   month: 6
-  doi: ""
+  doi: "10.5281/zenodo.21695656"
 keywords:
 - suelo urbano
 - caracterización fisicoquímica

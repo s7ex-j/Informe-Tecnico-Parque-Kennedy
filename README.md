@@ -1,11 +1,14 @@
 # Informe Técnico: Caracterización Fisicoquímica de Suelos Urbanos del Parque Kennedy
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21695656.svg)](https://doi.org/10.5281/zenodo.21695656)
+
 **Autor:** Jharol André Vilca Ramos  
 **ORCID:** [0009-0009-7897-3439](https://orcid.org/0009-0009-7897-3439)  
 **Afiliación:** Universidad Privada del Norte, Facultad de Ingeniería Industrial, Lima, Perú  
 **Fecha:** Junio 2026  
 **Licencia (código):** MIT  
-**Licencia (documento archivado en Zenodo):** CC-BY-4.0
+**Licencia (documento archivado en Zenodo):** CC-BY-4.0  
+**DOI (Zenodo):** [10.5281/zenodo.21695656](https://doi.org/10.5281/zenodo.21695656)
 
 ---
 
@@ -72,8 +75,8 @@ Si usa este trabajo, cite como:
   journal = {Informe Técnico},
   year    = {2026},
   month   = {6},
-  doi     = {},
-  url     = {https://github.com/JharolVilca/parque-kennedy-informe-tecnico}
+  doi     = {10.5281/zenodo.21695656},
+  url     = {https://github.com/s7ex-j/Informe-Tecnico-Parque-Kennedy}
 }
 ```
 

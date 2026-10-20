@@ -3,7 +3,7 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21695655.svg)](https://doi.org/10.5281/zenodo.21695655)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-blue.svg)](https://creativecommons.org/licenses/by/4.0/)
-[![LaTeX](https://img.shields.io/badge/LaTeX-TikZ%20%7C%20pgfplots-orange.svg)]()
+[![LaTeX](https://img.shields.io/badge/LaTeX-jaes.cls-orange.svg)](Informe/Informe.tex)
 
 **Autor:** Jharol André Vilca Ramos  
 **ORCID:** [0009-0009-7897-3439](https://orcid.org/0009-0009-7897-3439)  

@@ -5,6 +5,8 @@
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-blue.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![LaTeX](https://img.shields.io/badge/LaTeX-jaes.cls-orange.svg)](Informe/Informe.tex)
 
+<sub>**Español** · [English](README.en.md)</sub>
+
 **Autor:** Jharol André Vilca Ramos  
 **ORCID:** [0009-0009-7897-3439](https://orcid.org/0009-0009-7897-3439)  
 **Afiliación:** Universidad Privada del Norte, Facultad de Ingeniería Industrial, Lima, Perú  
